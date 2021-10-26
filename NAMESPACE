@@ -1,0 +1,82 @@
+useDynLib("rEMM")
+
+import("methods")
+
+importFrom("clusterGeneration", "genPositiveDefMat")
+importFrom("MASS", "mvrnorm")
+
+import("igraph")
+
+importFrom("graphics", "arrows", "barplot", "lines", "points",
+        "strheight", "strwidth", "text")
+importFrom("stats", "predict", "plogis", "runif",
+	"cmdscale", "cutree", "hclust", "kmeans")
+importFrom("proxy", "dist", "pr_DB", "pr_dist2simil")
+importFrom("utils", "installed.packages", "tail")
+importFrom("cluster", "pam")
+
+exportClasses(EMM, TRACDS, StreamClustering, tNN)
+
+export(
+    as.igraph,
+    as.graph,
+    as.igraph.TRACDS,
+    as.graph.TRACDS,
+    EMM,
+    TRAC,
+    build,
+    copy,
+    fade,
+    predict,
+    score,
+    size,
+    prune,
+    plot,
+    merge_clusters,
+    remove_clusters,
+    
+    ## tNN
+    tNN,
+    cluster,
+    clusters,
+    cluster_counts,
+    cluster_centers,
+    find_clusters,
+    last_clustering,
+    nclusters,
+    rare_clusters,
+    update,
+
+    ## TRACDS
+    TRACDS,
+    update,
+    compact,
+    nstates,
+    ntransitions,
+    reset,
+    states,
+    current_state,
+    transitions,
+    transition,
+    transition_matrix,
+    transition_table,
+    initial_transition,
+    rare_transitions,
+    remove_transitions,
+    remove_selftransitions,
+    smooth_transitions,
+
+    object.size,	### S4 generic for object size in base
+
+    recluster_hclust,
+    recluster_kmeans,
+    recluster_pam,
+    recluster_reachability,
+    recluster_tNN,
+    recluster_transitions,
+    
+    synthetic_stream
+)
+
+S3method(as.graph, TRACDS)
+S3method(as.igraph, TRACDS)

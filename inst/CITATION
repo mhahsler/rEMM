@@ -1,0 +1,19 @@
+
+citation(auto = meta)
+
+bibentry(bibtype = "article",
+	title = "{rEMM}: Extensible Markov Model for Data Stream Clustering in {R}",
+	author = {
+	personList(person("Michael", "Hahsler",
+		email = "michael@hahsler.net"),
+	    person("Margaret H.", "Dunham"))
+	},
+	journal      = "Journal of Statistical Software",
+	year         = "2010",
+	volume       = "35",
+	number       = "5",
+	pages        = "1--31",
+	doi          = "10.18637/jss.v035.i05",
+	issn         = "1548-7660"
+	)
+
