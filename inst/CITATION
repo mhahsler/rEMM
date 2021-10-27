@@ -5,7 +5,7 @@ bibentry(bibtype = "article",
 	title = "{rEMM}: Extensible Markov Model for Data Stream Clustering in {R}",
 	author = {
 	personList(person("Michael", "Hahsler",
-		email = "michael@hahsler.net"),
+		email = "mhahsler@lyle.smu.edu"),
 	    person("Margaret H.", "Dunham"))
 	},
 	journal      = "Journal of Statistical Software",
