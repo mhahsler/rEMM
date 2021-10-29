@@ -29,7 +29,7 @@ devtools::install_github("mhahsler/rEMM")
 
 ## Usage
 
-See Examples section in the [package vignette.](https://cran.r-project.org/web/packages/rEMM/vignettes/rEMM.pdf)
+See Examples section in the paper [rEMM: Extensible Markov model for data stream clustering in R.](http://dx.doi.org/10.18637/jss.v035.i05).
 
     
 # References
