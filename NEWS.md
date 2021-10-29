@@ -1,6 +1,7 @@
-# Changes in version 1.0-12 (10/27/2021)
+# Changes in version 1.1.0 (10/27/2021)
 
 * Moved to Github.
+* Updated package structure to new standards.
 
 # Changes in version 1.0-11 (07/23/2015)
 * Fixed NAMESPACE (non-standard imports)
