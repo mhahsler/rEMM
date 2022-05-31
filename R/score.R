@@ -46,6 +46,7 @@ setMethod("score", signature(x = "EMM", newdata = "numeric"),
     newdata,
     method = NULL,
     match_cluster = "exact",
+    random = FALSE,
     prior = TRUE,
     normalize = TRUE,
     initial_transition = FALSE,
@@ -55,6 +56,7 @@ setMethod("score", signature(x = "EMM", newdata = "numeric"),
       as.matrix(rbind(newdata)),
       method,
       match_cluster,
+      random,
       prior,
       normalize,
       initial_transition,
@@ -66,6 +68,7 @@ setMethod("score", signature(x = "EMM", newdata = "data.frame"),
     newdata,
     method = NULL,
     match_cluster = "exact",
+    random = FALSE,
     prior = TRUE,
     normalize = TRUE,
     initial_transition = FALSE,
@@ -75,6 +78,7 @@ setMethod("score", signature(x = "EMM", newdata = "data.frame"),
       as.matrix(newdata),
       method,
       match_cluster,
+      random,
       prior,
       normalize,
       initial_transition,
@@ -98,6 +102,7 @@ setMethod("score", signature(x = "EMM", newdata = "matrix"),
       "AIC"
     ),
     match_cluster = "exact",
+    random = FALSE,
     prior = TRUE,
     normalize = TRUE,
     initial_transition = FALSE,
@@ -114,6 +119,10 @@ setMethod("score", signature(x = "EMM", newdata = "matrix"),
         - Inf
         else
           0)
+
+    if (random) {
+      newdata <- newdata[sample(seq(nrow(newdata))), , drop = FALSE]
+    }
 
     if (method == "supported_transitions") {
       ###if(prior) warning("prior has no effect on supported transitions!")
@@ -283,10 +292,10 @@ setMethod("score", signature(x = "EMM", newdata = "EMM"),
     method = c("product", "log_sum", "sum",
       "supported_transitions"),
     match_cluster = "exact",
+    random = FALSE,
     prior = TRUE,
     initial_transition = FALSE) {
     method <- match.arg(method)
-
 
     ### find transitions in newdata
     trans <- transitions(newdata)
@@ -298,6 +307,9 @@ setMethod("score", signature(x = "EMM", newdata = "EMM"),
     ### translate to states in x
     cl <-
       cbind(cl[as.integer(trans[, 1])], cl[as.integer(trans[, 2])])
+
+    if (random)
+      cl[, 2] <- cl[sample(seq(nrow(cl))), 2, drop = FALSE]
 
     ### FIXME: add weighted versions. What weights should we use?
 
