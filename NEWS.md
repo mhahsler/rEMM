@@ -1,5 +1,9 @@
-# Changes in version 1.1.0-1 (xx/xx/2022)
+# Changes in version 1.2.0 (06/25/2022)
+* added interface for package stream
 
+# Changes in version 1.1.1 (05/31/2022)
+* score gained parameter random
+* cleanup.
 
 # Changes in version 1.1.0 (10/27/2021)
 
