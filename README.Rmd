@@ -2,22 +2,13 @@
 output: github_document
 ---
 
-# <img src='man/figures/logo.svg' align="right" height="139" />R package rEMM: Extensible Markov Model for Modelling Temporal Relationships Between Clusters
-
-```{r echo=FALSE}
-options(digits = 2)
-knitr::opts_chunk$set(tidy = TRUE, message = FALSE, fig.path = 'inst/README_files/')
-```
-
 ```{r echo=FALSE, results = 'asis'}
 pkg <- 'rEMM'
 
-library(stringr)
-
-  cat(str_interp("[![CRAN version](http://www.r-pkg.org/badges/version/${pkg})](https://CRAN.R-project.org/package=${pkg})\n"))
-  cat(str_interp("[![stream r-universe status](https://mhahsler.r-universe.dev/badges/${pkg})](https://mhahsler.r-universe.dev/ui#package:${pkg})\n"))
-  cat(str_interp("[![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/grand-total/${pkg})](https://CRAN.R-project.org/package=${pkg})\n"))
+source("https://raw.githubusercontent.com/mhahsler/pkg_helpers/main/pkg_helpers.R")
+pkg_title(pkg)
 ```
+
 
 Implements TRACDS (Temporal Relationships 
     between Clusters for Data Streams), a generalization of 
@@ -29,15 +20,9 @@ Implements TRACDS (Temporal Relationships
 
 Interface classes  DSC_tNN and DSC_EMM for the [stream package](https://github.com/mhahsler/stream) are provided.  
 
-## Installation
-
-**Stable CRAN version:** install from within R with
-
-```{r eval=FALSE}
-install.packages("rEMM")
+```{r echo=FALSE, results = 'asis'}
+pkg_install(pkg)
 ```
-
-__Current development version:__ Install from [r-universe.](https://mhahsler.r-universe.dev/ui#package:rEMM)
 
 ## Usage
 
