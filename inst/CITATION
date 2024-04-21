@@ -1,12 +1,13 @@
-
 citation(auto = meta)
 
 bibentry(bibtype = "article",
 	title = "{rEMM}: Extensible Markov Model for Data Stream Clustering in {R}",
 	author = {
-	personList(person("Michael", "Hahsler",
-		email = "mhahsler@lyle.smu.edu"),
-	    person("Margaret H.", "Dunham"))
+	c(person("Michael", "Hahsler",
+		email = "mhahsler@lyle.smu.edu",
+		comment = c(ORCID = "0000-0003-2716-1405")
+		),
+	  person("Margaret H.", "Dunham"))
 	},
 	journal      = "Journal of Statistical Software",
 	year         = "2010",
