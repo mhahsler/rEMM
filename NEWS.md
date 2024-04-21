@@ -1,6 +1,7 @@
-# Changes in version 1.2.0.1 (xx/xx/2024)
+# Changes in version 1.2.1 (04/21/2024)
 * added missing package anchor in man pages.
-
+* removed C++ code. 
+* proxy and igraph are now imported.
 
 # Changes in version 1.2.0 (06/25/2022)
 * added interface for package stream

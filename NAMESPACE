@@ -1,5 +1,3 @@
-useDynLib("rEMM", .registration = TRUE)
-
 import("methods")
 import("igraph")
 import("stream")

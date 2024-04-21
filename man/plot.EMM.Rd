@@ -27,7 +27,7 @@ There are several methods for plotting:
 Additional arguments like \code{layout} are passed on to plot for igraph.
 
 \code{"interactive"} produces an interactive graph representation of the EMM (using \pkg{igraph}).
-Arguments suitable for \code{plot} in \pkg{igraph} can be
+Arguments suitable for \code{\link[igraph]{plot.igraph}} in \pkg{igraph} can be
 passed on as \code{...}.
 
 \code{"graph"} produces a graph representation of the EMM using \pkg{Rgraphviz}.
@@ -87,7 +87,7 @@ plot(emm, main = "Graph")
 ## Plot the graph as a tree with a set root node and an aspect ratio of 1:1.
 g <- as.igraph(emm)
 plot(emm, main = "Graph (tree layout)",
-  layout = layout_as_tree(g, root = 1), asp = 1)
+  layout = igraph::layout_as_tree(g, root = 1), asp = 1)
 
 plot( emm, method = "MDS",
   main = "Graph (MDS projection)", xlim = c(-0.5, 0.5), ylim = c(-0.5, 0.5)

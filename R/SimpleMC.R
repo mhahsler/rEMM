@@ -175,10 +175,7 @@ smc_removeTransition <- function(x, from, to) {
   pos_f <- smc_names2index(x, from)
   pos_t <- smc_names2index(x, to)
 
-  #for(i in 1:length(pos_f))
-  #	x@counts[pos_f[i], pos_t[i]] <- 0
-
-  x@counts <- .Call("clear_matrix", x@counts, pos_f, pos_t)
+  x@counts[cbind(pos_f, pos_t)] <- 0
 
   x
 }
