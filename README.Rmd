@@ -20,7 +20,9 @@ Implements TRACDS (Temporal Relationships
 
 Interface classes  DSC_tNN and DSC_EMM for the [stream package](https://github.com/mhahsler/stream) are provided.  
 
+
 ```{r echo=FALSE, results = 'asis'}
+pkg_citation(pkg, 2L)
 pkg_install(pkg)
 ```
 

@@ -18,7 +18,7 @@ Visualize EMM objects.}
   \item{data}{ Project the state centers onto these data. Points which do
     not belong to any cluster are shown in blue.}
   \item{parameter}{ a list of parameters for plotting (see Details section). }
-  \item{\dots}{ further arguments passed on to \code{\link{plot.default}} or \code{\link{plot.igraph}}. }
+  \item{\dots}{ further arguments passed on to \code{\link{plot.default}} or \code{\link[igraph]{plot.igraph}}. }
 }
 \details{
 There are several methods for plotting:

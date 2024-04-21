@@ -1,6 +1,6 @@
 Package: rEMM
-Version: 1.2.0
-Date: 2022-06-25
+Version: 1.2.0.1
+Date: 2024-xx-xx
 Title: Extensible Markov Model for Modelling Temporal Relationships Between Clusters
 Authors@R: c(person("Michael", "Hahsler", role = c("aut", "cre", "cph"),
 	    email = "mhahsler@lyle.smu.edu",

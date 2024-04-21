@@ -4,7 +4,7 @@
 [![CRAN
 version](http://www.r-pkg.org/badges/version/rEMM)](https://CRAN.R-project.org/package=rEMM)
 [![stream r-universe
-status](https://mhahsler.r-universe.dev/badges/rEMM)](https://mhahsler.r-universe.dev/ui#package:rEMM)
+status](https://mhahsler.r-universe.dev/badges/rEMM)](https://mhahsler.r-universe.dev/rEMM)
 [![CRAN RStudio mirror
 downloads](http://cranlogs.r-pkg.org/badges/rEMM)](https://CRAN.R-project.org/package=rEMM)
 
@@ -18,6 +18,25 @@ top of tNN data stream clustering).
 Interface classes DSC_tNN and DSC_EMM for the [stream
 package](https://github.com/mhahsler/stream) are provided.
 
+To cite package ‘rEMM’ in publications use:
+
+> Hahsler M, Dunham M (2010). “rEMM: Extensible Markov Model for Data
+> Stream Clustering in R.” *Journal of Statistical Software*, *35*(5),
+> 1-31. ISSN 1548-7660, <doi:10.18637/jss.v035.i05>
+> <https://doi.org/10.18637/jss.v035.i05>.
+
+    @Article{,
+      title = {{rEMM}: Extensible Markov Model for Data Stream Clustering in {R}},
+      author = {Michael Hahsler and Margaret H. Dunham},
+      journal = {Journal of Statistical Software},
+      year = {2010},
+      volume = {35},
+      number = {5},
+      pages = {1--31},
+      doi = {10.18637/jss.v035.i05},
+      issn = {1548-7660},
+    }
+
 ## Installation
 
 **Stable CRAN version:** Install from within R with
@@ -27,10 +46,11 @@ install.packages("rEMM")
 ```
 
 **Current development version:** Install from
-[r-universe.](https://mhahsler.r-universe.dev/ui#package:rEMM)
+[r-universe.](https://mhahsler.r-universe.dev/rEMM)
 
 ``` r
-install.packages("rEMM", repos = "https://mhahsler.r-universe.dev")
+install.packages("rEMM",
+    repos = c("https://mhahsler.r-universe.dev". "https://cloud.r-project.org/"))
 ```
 
 ## Usage
@@ -77,14 +97,14 @@ score(emmc, EMMsim_test)
 
 # References
 
--   Michael Hahsler and Margaret H. Dunham. [rEMM: Extensible Markov
-    model for data stream clustering in
-    R.](http://dx.doi.org/10.18637/jss.v035.i05) *Journal of Statistical
-    Software,* 35(5):1-31, 2010.
--   Michael Hahsler and Margaret H. Dunham. [Temporal structure learning
-    for clustering massive data streams in
-    real-time](https://doi.org/10.1137/1.9781611972818.57). In *SIAM
-    Conference on Data Mining (SDM11),* pages 664–675. SIAM, April 2011.
+- Michael Hahsler and Margaret H. Dunham. [rEMM: Extensible Markov model
+  for data stream clustering in
+  R.](http://dx.doi.org/10.18637/jss.v035.i05) *Journal of Statistical
+  Software,* 35(5):1-31, 2010.
+- Michael Hahsler and Margaret H. Dunham. [Temporal structure learning
+  for clustering massive data streams in
+  real-time](https://doi.org/10.1137/1.9781611972818.57). In *SIAM
+  Conference on Data Mining (SDM11),* pages 664–675. SIAM, April 2011.
 
 # Acknowledgements
 
