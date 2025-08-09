@@ -1,12 +1,12 @@
 
 # <img src="man/figures/logo.svg" align="right" height="139" /> R package rEMM - Extensible Markov Model for Modelling Temporal Relationships Between Clusters
 
-[![r-universe
-status](https://mhahsler.r-universe.dev/badges/rEMM)](https://mhahsler.r-universe.dev/rEMM)
 [![Package on
 CRAN](https://www.r-pkg.org/badges/version/rEMM)](https://CRAN.R-project.org/package=rEMM)
 [![CRAN RStudio mirror
 downloads](https://cranlogs.r-pkg.org/badges/rEMM)](https://CRAN.R-project.org/package=rEMM)
+![License](https://img.shields.io/cran/l/rEMM) [![r-universe
+status](https://mhahsler.r-universe.dev/badges/rEMM)](https://mhahsler.r-universe.dev/rEMM)
 
 Implements TRACDS (Temporal Relationships between Clusters for Data
 Streams), a generalization of Extensible Markov Model (EMM), to model

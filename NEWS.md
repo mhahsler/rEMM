@@ -1,3 +1,6 @@
+# Changes in version 1.2.2 (08/09/2025)
+* Fixed partial argument matching issues.
+
 # Changes in version 1.2.1 (04/21/2024)
 * added missing package anchor in man pages.
 * removed C++ code. 

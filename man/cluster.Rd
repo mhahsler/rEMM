@@ -32,28 +32,28 @@ cluster(x, newdata, ...)
 	(see package~\pkg{proxy}).
 
 	The clusters which the data points in the last \code{cluster()}
-	operation where assigned to can be retrieved using the method 
+	operation where assigned to can be retrieved using the method
 	\code{last_clustering()}.
 
 }
 \value{
-A reference to the changed tNN object with the data added. 
-Note: tNN objects store all variable data in an environment which 
+A reference to the changed tNN object with the data added.
+Note: tNN objects store all variable data in an environment which
 enables us to update partial data without copying the whole object. Assignment
-will not create a copy! Use the provided method \code{copy()}. 
+will not create a copy! Use the provided method \code{copy()}.
 }
 %\references{ ~put references to the literature/web site here ~ }
 %\author{ ~~who you are~~ }
-\seealso{ 
-	Class \code{\linkS4class{tNN}}, 
-	\code{\link{fade}} and \code{\link[proxy]{dist}} 
+\seealso{
+	Class \code{\linkS4class{tNN}},
+	\code{\link{fade}} and \code{\link[proxy]{dist}}
 	in \pkg{proxy}.}
 \examples{
 ## load EMMTraffic data
 data(EMMTraffic)
 
 ## create empty clustering
-tnn <- tNN(th=0.2, measure="eJaccard")
+tnn <- tNN(threshold = 0.2, measure = "eJaccard")
 tnn
 
 ## cluster some data

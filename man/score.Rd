@@ -194,7 +194,7 @@ mybars <- function(...) {
     beside = TRUE,
     horiz = TRUE,
     las = 2,
-    legend = rownames(ss)
+    legend.text = rownames(ss)
   )
   par(oldpar)
 }
@@ -242,7 +242,7 @@ clean <-
     methods,
     FUN = function(m)
       score(emm, EMMsim_test, method = m,
-        match = "weighted")
+        match_cluster = "weighted")
   )
 
 shuffled <-
@@ -250,7 +250,7 @@ shuffled <-
     methods,
     FUN = function(m)
       score(emm, test_shuffled, method = m,
-        match = "weighted")
+        match_cluster = "weighted")
   )
 
 noise <-
@@ -258,7 +258,7 @@ noise <-
     methods,
     FUN = function(m)
       score(emm, test_noise, method = m,
-        match = "weighted")
+        match_cluster = "weighted")
   )
 
 mybars(shuffled, noise, clean)

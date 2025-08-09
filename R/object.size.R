@@ -17,7 +17,7 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 
-### This is needed to calculate the sice of the elements in the environments
+### This is needed to calculate the size of the elements in the environments
 ### correctly
 
 setMethod("object.size", signature(x = "TRACDS"),
