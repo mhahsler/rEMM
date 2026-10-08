@@ -17,6 +17,8 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 
+#' @name update
+#' @rdname update
 setMethod("compact", signature(x = "TRACDS"),
 	function(x) {
 
@@ -24,4 +26,3 @@ setMethod("compact", signature(x = "TRACDS"),
 	    invisible(x)
 
 	})
-

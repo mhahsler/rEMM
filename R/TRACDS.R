@@ -17,6 +17,10 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 ## creator for TRACDS
+#' @rdname TRACDS-class
+#' @param lambda Numeric fading rate. Zero disables fading.
+#' @return An object of class \code{"TRACDS"}.
+#' @export
 TRACDS <- function(lambda = 0) {
   new("TRACDS", lambda = lambda)
 }
@@ -30,7 +34,7 @@ setMethod("show", signature(object = "TRACDS"),
 
 setMethod("copy", signature(x = "TRACDS"),
   function(x) {
-    r <- new("TRACDS")
+    r <- new("TRACDS", lambda = x@lambda)
 
     ## copy environment
     r@tracds_d <- as.environment(as.list(x@tracds_d))

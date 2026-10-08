@@ -1,0 +1,71 @@
+---
+title: "Adding temporal structure modeling to standard clustering"
+output:
+  rmarkdown::html_vignette:
+    toc: false
+vignette: >
+  %\VignetteIndexEntry{Adding temporal structure modeling to standard clustering}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>", fig.width = 6, fig.height = 4)
+```
+
+## Introduction
+
+Standard clustering methods such as k-means group observations by similarity,
+but do not model the order in which observations occurred. `TRAC()` adds a
+Markov model of transitions between the resulting clusters. The observations
+must be in sequence order: their row order determines which cluster transitions
+are recorded.
+
+## Cluster the observations
+
+The bundled `EMMsim_train` data are an ordered sequence of two-dimensional
+observations. First, apply an ordinary k-means clustering. K-means finds the
+clusters without using the sequence order.
+
+```{r clustering}
+library(rEMM)
+data("EMMsim")
+
+set.seed(1234)
+cl <- kmeans(EMMsim_train, centers = 10)
+cl
+```
+
+## Add the temporal model
+
+Pass the clustering result to `TRAC()`. It uses the k-means centers and
+assignments to create an EMM, then processes the assignments in their original
+order to learn transitions. The result contains both the clusters and their
+temporal relationships.
+
+```{r trac}
+emm <- TRAC(cl)
+emm
+```
+
+The transition graph can be visualized alongside a two-dimensional layout of
+the cluster centers:
+
+```{r plot, fig.cap="Clusters and learned transitions from the ordered sequence."}
+plot(emm, method = "MDS")
+```
+
+If a different clustering algorithm is used that does not produce a 
+standard clustering object, then
+`TRAC()` also accepts a vector of cluster assignments. In that case, provide
+the data used for clustering so it can calculate cluster centers and distance
+thresholds:
+
+```{r assignments}
+emm_from_labels <- TRAC(cl$cluster, data = EMMsim_train)
+emm_from_labels
+```
+
+The assignments must correspond to the rows of the data in sequence order;
+otherwise, the learned transitions will not represent the original sequence.
+The result is the same model as before when the clustering object was used.

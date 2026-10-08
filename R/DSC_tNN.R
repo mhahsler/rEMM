@@ -16,6 +16,8 @@
 # plot(cl, stream)
 
 
+#' @rdname DSC_EMM
+#' @export
 DSC_tNN <-
   function(formula = NULL,
     threshold = 0.2,

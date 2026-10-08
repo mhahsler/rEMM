@@ -79,7 +79,7 @@
   timestamp = {2009.04.29}
 }
 
-  
+
 @ARTICLE{emm:cormack:1987,
   author = {G. V. Cormack and R. N. S. Horspool},
   title = {Data Compression Using Dynamic Markov Modeling},
@@ -174,7 +174,7 @@ Encoding: UTF8
 }
 
 @Manual{R:Rgraphviz:2009,
-    title = {\pkg{Rgraphviz}: Provides Plotting Capabilities for \proglang{R} 
+    title = {\pkg{Rgraphviz}: Provides Plotting Capabilities for \proglang{R}
             Graph Objects},
     author = {Jeff Gentry and Li Long and Robert Gentleman and Seth Falcon and Florian Hahne and Deepayan Sarkar},
     year = {2010},
@@ -795,14 +795,26 @@ Encoding: UTF8
 
 @Article{Hahsler+Dunham:2010,
     author        = {Michael Hahsler and Margaret H. Dunham},
-    title         = {\pkg{rEMM}: Extensible Markov Model for Data Stream
-	Clustering in \proglang{R}},
+    title         = {{rEMM}: Extensible Markov Model for Data Stream
+	Clustering in {R}},
     journal       = {Journal of Statistical Software},
     year          = {2010},
     volume        = {35},
     number        = {5},
     pages         = {1--31},
+    doi           = {10.18637/jss.v035.i05},
     url           = {http://www.jstatsoft.org/v35/i05/}
+}
+
+@INPROCEEDINGS{Hahsler+Dunham:2011,
+    author        = {Michael Hahsler and Margaret H. Dunham},
+    title         = {Temporal Structure Learning for Clustering Massive Data Streams in Real-Time},
+    booktitle     = {Proceedings of the 2011 SIAM International Conference on Data Mining},
+    year          = {2011},
+    pages         = {664--675},
+    month         = {April},
+    publisher     = {SIAM},
+    doi           = {10.1137/1.9781611972818.57}
 }
 
 @book{Jaynes:2003,
@@ -813,3 +825,14 @@ Encoding: UTF8
     year = 2003
 }
 
+@article{Hahsler:2017,
+ title={Introduction to stream: An Extensible Framework for Data Stream Clustering Research with R},
+ volume={76},
+ doi={10.18637/jss.v076.i14},
+ abstract={In recent years, data streams have become an increasingly important area of research for the computer science, database and statistics communities. Data streams are ordered and potentially unbounded sequences of data points created by a typically non-stationary data generating process. Common data mining tasks associated with data streams include clustering, classification and frequent pattern mining. New algorithms for these types of data are proposed regularly and it is important to evaluate them thoroughly under standardized conditions. In this paper we introduce stream, a research tool that includes modeling and simulating data streams as well as an extensible framework for implementing, interfacing and experimenting with algorithms for various data stream mining tasks. The main advantage of stream is that it seamlessly integrates with the large existing infrastructure provided by R. In addition to data handling, plotting and easy scripting capabilities, R also provides many existing algorithms and enables users to interface code written in many programming languages popular among data mining researchers (e.g., C/C++, Java and Python). In this paper we describe the architecture of stream and focus on its use for data stream clustering research. stream was implemented with extensibility in mind and will be extended in the future to cover additional data stream mining tasks like classification and frequent pattern mining.},
+ number={14},
+ journal={Journal of Statistical Software},
+ author={Hahsler, Michael and Bolaños, Matthew and Forrest, John},
+ year={2017},
+ pages={1--50}
+}

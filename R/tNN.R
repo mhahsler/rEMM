@@ -18,6 +18,13 @@
 
 
 ## creator function
+#' @rdname tNN-class
+#' @param threshold Numeric dissimilarity threshold for assigning new observations to existing clusters.
+#' @param measure Name of the dissimilarity measure; see \code{\link[proxy]{dist}}.
+#' @param centroids Logical; use centroids if \code{TRUE}, otherwise represent clusters by their first observation.
+#' @param lambda Numeric fading rate. Zero disables fading.
+#' @return An object of class \code{"tNN"}.
+#' @export
 tNN <- function(threshold = 0.2,
   measure = "euclidean",
   centroids = identical(tolower(measure), "euclidean"),
@@ -120,6 +127,44 @@ setMethod("find_clusters", signature(x = "tNN", newdata = "data.frame"),
     dist = FALSE)
     find_clusters(x, as.matrix(newdata), match_cluster, dist))
 
+#' Find the EMM State/Cluster for an Observation
+#'
+#' @name find_clusters
+#' @rdname find_clusters
+#' @aliases find_clusters
+#' @aliases find_clusters,tNN,numeric-method
+#' @aliases find_clusters,tNN,matrix-method
+#' @aliases find_clusters,tNN,data.frame-method
+#' @description Finds the cluster and thus the EMM states for observations.
+#' @param x an \code{EMM} object.
+#' @param newdata a matrix/data.frame with observations.
+#' @param match_cluster find exact or nearest neighbor (nn) cluster/state.
+#'     If a number is supplied then the threshold times this number is
+#'     used for exact matching.
+#' @param dist also report the distance to the chosen cluster/state (as a
+#'   data.frame).
+#' @return Returns the name of the matching clusters/states or a data.frame with
+#' columns "state" and "dist" if \code{dist=TRUE}.
+#' @seealso \code{\linkS4class{EMM}} and \code{\linkS4class{tNN}}
+#' @examples data("EMMTraffic")
+#' emm <- EMM(measure="eJaccard", threshold=0.2)
+#' emm <- build(emm, EMMTraffic)
+#'
+#' find_clusters(emm, EMMTraffic)
+#' find_clusters(emm, EMMTraffic, dist=TRUE)
+#'
+#' ## add noise to the data
+#' set.seed(1234)
+#' newdata <- sapply(EMMTraffic, jitter, amount=15)
+#' ## default is exact match
+#' find_clusters(emm, newdata, dist=TRUE)
+#' ## match with nearest neighbor
+#' find_clusters(emm, newdata, match_cluster="nn", dist=TRUE)
+#' ## exact match only if within .5 times threshold
+#' find_clusters(emm, newdata, match_cluster=.5, dist=TRUE)
+#' ## exact match only if within 2 times threshold
+#' find_clusters(emm, newdata, match_cluster=2, dist=TRUE)
+#' @keywords models
 setMethod("find_clusters", signature(x = "tNN", newdata = "matrix"),
   function(x,
     newdata,

@@ -20,6 +20,36 @@
 ## create a tNN clustering from k-means, etc.
 ## This is TRAC (without DS)
 
+#' TRAC: Creating a Markov Model from a Regular Clustering
+#'
+#' @name TRAC
+#' @rdname TRAC-class
+#' @aliases TRAC
+#' @description Create an Markov model from a regular clustering (k-means or PAM) of
+#' sequence data.
+#' @param x a clustering object (result of kmeans or PAM), a
+#'     data set (a data matrix), or a vector with (integer) cluster assignments.
+#' @param data the data used for clustering (only used if \code{x}
+#'     is a cluster assignment vector).
+#' @param centers if \code{x} is a cluster assignment vector, then a data.frame or matrix with the cluster centers needs to be supplies. Otherwise, \code{centers} is ignored.
+#' @param measure used distance measure.
+#' @details The order is inferred from the order in the original data set.
+#' @return A \code{EMM} object representing the clustering of sequence data.
+#' @examples data("EMMsim")
+#'
+#' ## using kmeans
+#' cl <- kmeans(EMMsim_train, 10)
+#' emm <- TRAC(cl)
+#' emm
+#' plot(emm, method = "MDS")
+#'
+#' ## using a cluster assignment vector (taken from the k-means clustering above)
+#' x <- cl$cluster
+#' emm <- TRAC(x, data = EMMsim_train)
+#' emm
+#' plot(emm, method = "MDS")
+#' @keywords models
+#' @export
 TRAC <-
   function(x,
     data = NULL,
@@ -81,6 +111,8 @@ TRAC <-
     ## create tNN
     states <- as.character(1:k)
     names(counts) <- states
+    rownames(centers) <- states
+    names(thresholds) <- states
 
     emm@tnn_d$centers <- centers
     emm@tnn_d$counts <- counts

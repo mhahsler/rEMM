@@ -87,7 +87,8 @@ smc_addState <- function(x, state) {
   while (x@top < length(state))
     x <- smc_expand(x)
 
-  pos <- x@unused[(x@top - length(state) + 1L):x@top]
+  ## pop free positions in the same order as the supplied state names
+  pos <- rev(x@unused[(x@top - length(state) + 1L):x@top])
   x@unused[(x@top - length(state) + 1L):x@top] <- NA
   x@top <- x@top - length(state)
 
@@ -236,7 +237,7 @@ smc_containsState <- function(x, state) {
 }
 
 smc_as.igraph <- function(x) {
-  graph.adjacency(smc_countMatrix(x), weighted = TRUE)
+  graph_from_adjacency_matrix(smc_countMatrix(x), weighted = TRUE)
 }
 
 ## convert to graph (needs package graph!)

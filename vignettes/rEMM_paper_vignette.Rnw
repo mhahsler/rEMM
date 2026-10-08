@@ -905,7 +905,7 @@ more popular clusters and transitions are more prominently displayed.
 
 \begin{figure}
 \centering
-\includegraphics[width=.5\linewidth]{rEMM-Traffic_graph}
+\includegraphics[width=.5\linewidth]{rEMM_paper_vignette-Traffic_graph}
 \caption{Graph representation of an EMM for the EMMTraffic data set.}
 \label{fig:Traffic_graph}
 \end{figure}
@@ -1000,22 +1000,22 @@ plot(emm_25merged, method = "graph")
 \begin{figure}[t]
 \begin{minipage}[b]{.49\linewidth}
 \centering
-\includegraphics[width=.7\linewidth]{rEMM-Traffic_graph}
+\includegraphics[width=.7\linewidth]{rEMM_paper_vignette-Traffic_graph}
 \\(a)
 \end{minipage}
 \begin{minipage}[b]{.49\linewidth}
 \centering
-\includegraphics[width=.7\linewidth]{rEMM-Traffic_r3}
+\includegraphics[width=.7\linewidth]{rEMM_paper_vignette-Traffic_r3}
 \\(b)
 \end{minipage}
 \begin{minipage}[b]{.49\linewidth}
 \centering
-\includegraphics[width=.7\linewidth]{rEMM-Traffic_rt52}
+\includegraphics[width=.7\linewidth]{rEMM_paper_vignette-Traffic_rt52}
 \\(c)
 \end{minipage}
 \begin{minipage}[b]{.49\linewidth}
 \centering
-\includegraphics[width=.7\linewidth]{rEMM-Traffic_m25}
+\includegraphics[width=.7\linewidth]{rEMM_paper_vignette-Traffic_m25}
 \\(d)
 \end{minipage}
 \caption{Graph representation for an EMM for the EMMTraffic data set.
@@ -1073,17 +1073,17 @@ plot(emm_fading_pruned, method = "graph")
 \begin{figure}[t]
 \begin{minipage}[b]{.49\linewidth}
 \centering
-\includegraphics[width=.7\linewidth]{rEMM-Traffic_graph}
+\includegraphics[width=.7\linewidth]{rEMM_paper_vignette-Traffic_graph}
 \\(a)
 \end{minipage}
 \begin{minipage}[b]{.49\linewidth}
 \centering
-\includegraphics[width=.7\linewidth]{rEMM-Traffic_l}
+\includegraphics[width=.7\linewidth]{rEMM_paper_vignette-Traffic_l}
 \\(b)
 \end{minipage}
 \begin{minipage}[b]{.49\linewidth}
 \centering
-\includegraphics[width=.7\linewidth]{rEMM-Traffic_lp}
+\includegraphics[width=.7\linewidth]{rEMM_paper_vignette-Traffic_lp}
 \\(c)
 \end{minipage}
 \caption{Graph representation of an EMM for the EMMTraffic data set.
@@ -1135,7 +1135,7 @@ text(EMMsim_test, labels = 1:nrow(EMMsim_test), pos = 3)
 \centering
 %\begin{minipage}[b]{.49\linewidth}
 %\centering
-\includegraphics[width=.5\linewidth]{rEMM-sim_data}
+\includegraphics[width=.5\linewidth]{rEMM_paper_vignette-sim_data}
 %\end{minipage}
 \caption{Simulated data set with four clusters. The
 points of the
@@ -1205,22 +1205,22 @@ plot(emm, method = "MDS", data = EMMsim_train)
 \begin{figure}[tp]
 \begin{minipage}[b]{.49\linewidth}
 \centering
-\includegraphics[width=.9\linewidth]{rEMM-sim_graph}
+\includegraphics[width=.9\linewidth]{rEMM_paper_vignette-sim_graph}
 \\(a)
 \end{minipage}
 \begin{minipage}[b]{.49\linewidth}
 \centering
-\includegraphics[width=.9\linewidth]{rEMM-sim_graphviz}
+\includegraphics[width=.9\linewidth]{rEMM_paper_vignette-sim_graphviz}
 \\(b)
 \end{minipage}
 \begin{minipage}[b]{.49\linewidth}
 \centering
-\includegraphics[width=.9\linewidth]{rEMM-sim_MDS}
+\includegraphics[width=.9\linewidth]{rEMM_paper_vignette-sim_MDS}
 \\(c)
 \end{minipage}
 \begin{minipage}[b]{.49\linewidth}
 \centering
-\includegraphics[width=.9\linewidth]{rEMM-sim_MDS2}
+\includegraphics[width=.9\linewidth]{rEMM_paper_vignette-sim_MDS2}
 \\(d)
 \end{minipage}
 \caption{Visualization of the EMM for the simulated data.
@@ -1326,7 +1326,7 @@ plot(
 
 \begin{figure}[tbp]
 \centering
-\includegraphics[width=.5\linewidth]{rEMM-simil}
+\includegraphics[width=.5\linewidth]{rEMM_paper_vignette-simil}
 \caption{Similarity weight calculation given the distance and the used threshold $t$.}
 \label{fig:simil}
 \end{figure}
@@ -1461,7 +1461,7 @@ plot(attr(emmc, "cluster_info")$dendrogram)
 
 \begin{figure}[tbp]
 \centering
-\includegraphics[width=.5\linewidth]{rEMM-sim_hc}
+\includegraphics[width=.5\linewidth]{rEMM_paper_vignette-sim_hc}
 \caption{Dendrogram for clustering state centers of the EMM build from
 simulated data.}
 \label{fig:sim_hc}
@@ -1493,12 +1493,12 @@ plot(emmc[[which.max(sc)]], method = "MDS", data = EMMsim_train)
 \begin{figure}[tbp]
 \begin{minipage}[b]{.49\linewidth}
 \centering
-\includegraphics[width=\linewidth]{rEMM-sim_optc_graph}\\
+\includegraphics[width=\linewidth]{rEMM_paper_vignette-sim_optc_graph}\\
 (a)
 \end{minipage}
 \begin{minipage}[b]{.49\linewidth}
 \centering
-\includegraphics[width=\linewidth]{rEMM-sim_optc_MDS}\\
+\includegraphics[width=\linewidth]{rEMM_paper_vignette-sim_optc_MDS}\\
 (b)
 \end{minipage}
 \caption{Best performing final clustering for EMM with a $k$ of
@@ -1544,7 +1544,7 @@ plot(Derwent[, 1],
 @
 \begin{figure}
 \centering
-\includegraphics[width=.5\linewidth]{rEMM-Derwent1}
+\includegraphics[width=.5\linewidth]{rEMM_paper_vignette-Derwent1}
 \caption{Gauged flow (in $m^3/s$) of the river Derwent at the
 Long Bridge catchment.}
 \label{fig:Derwent1}
@@ -1573,7 +1573,7 @@ plot(emm, method = "cluster_counts", log = "y")
 @
 \begin{figure}
 \centering
-\includegraphics[width=.8\linewidth]{rEMM-Derwent_cluster_counts}
+\includegraphics[width=.8\linewidth]{rEMM_paper_vignette-Derwent_cluster_counts}
 \caption{Distribution of state counts of the EMM for the Derwent data.}
 \label{fig:Derwent_cluster_counts}
 \end{figure}
@@ -1589,12 +1589,12 @@ plot(emm, method = "MDS")
 \begin{figure}
 \begin{minipage}[b]{.49\linewidth}
 \centering
-\includegraphics[width=\linewidth]{rEMM-Derwent_EMM1}
+\includegraphics[width=\linewidth]{rEMM_paper_vignette-Derwent_EMM1}
 \\(a)
 \end{minipage}
 \begin{minipage}[b]{.49\linewidth}
 \centering
-\includegraphics[width=\linewidth]{rEMM-Derwent_EMM2}
+\includegraphics[width=\linewidth]{rEMM_paper_vignette-Derwent_EMM2}
 \\(b)
 \end{minipage}
 \caption{Cluster centers of the EMM for the Derwent data set projected
@@ -1665,12 +1665,12 @@ mark_states("12", state_sequence, Derwent[, catchment], col = "red",  label = "1
 \begin{figure}
 \begin{minipage}[b]{.49\linewidth}
 \centering
-\includegraphics[width=\linewidth]{rEMM-Derwent2}
+\includegraphics[width=\linewidth]{rEMM_paper_vignette-Derwent2}
 \\(a)
 \end{minipage}
 \begin{minipage}[b]{.49\linewidth}
 \centering
-\includegraphics[width=\linewidth]{rEMM-Derwent3}
+\includegraphics[width=\linewidth]{rEMM_paper_vignette-Derwent3}
 \\(b)
 \end{minipage}
 \caption{Gauged flow (in $m^3/s$) at (a) the
@@ -1789,7 +1789,7 @@ it[it > 0]
 
 \begin{figure}
 \centering
-\includegraphics[width=\linewidth]{rEMM-Mollicutes_graph}
+\includegraphics[width=\linewidth]{rEMM_paper_vignette-Mollicutes_graph}
 \caption{An EMM representing 16S sequences from the class Mollicutes
 represented as a graph.}
 \label{fig:Mollicutes_graph}

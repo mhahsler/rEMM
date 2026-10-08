@@ -43,6 +43,61 @@ setMethod("transition", signature(x = "TRACDS",
     transition(x, from, to, type, prior)
   })
 
+#' Access Transition Probabilities/Counts in an EMM
+#'
+#' @name transition
+#' @rdname transition
+#' @aliases transition
+#' @aliases transition,TRACDS,character,character-method
+#' @aliases transition,TRACDS,matrix,missing-method
+#' @aliases transition,TRACDS,data.frame,missing-method
+#' @aliases transition_matrix
+#' @aliases transition_matrix,TRACDS-method
+#' @aliases initial_transition
+#' @aliases initial_transition,TRACDS-method
+#' @description Calculates individual transition probabilities/counts
+#' or a complete transition matrix
+#' for an EMM (which contains \code{"TRACDS"}).
+#' @param x an object of class \code{"EMM"}/\code{"TRACDS"}.
+#' @param from,to Names a states. If \code{to} is missing,
+#'   \code{from} has
+#'   to contain a matrix with two columns (a from column and a
+#'   to column as returned by \code{transitions}).
+#' @param type What should be calculated?
+#' @param prior add one to each transition count. This is equal
+#'       to starting with a uniform prior for the transition count distribution,
+#'       i.e., initially all transitions are equally likely.
+#' @details Log odds are calculated as \eqn{ln(a/(1/n))} where \eqn{a} is the probability
+#' of the transition and \eqn{n} is the number of states in the EMM.  \eqn{1/n} is
+#' the probability of a transition under the null model which assumes that the
+#' transition probability from each state to each other state (including staying
+#' in the same state) is the same, i.e., the null model has a transition matrix
+#' with all entries equal to \eqn{1/n}.
+#' @return A scalar (for \code{transition}), a square matrix
+#'     (for \code{transition_matrix}) or a vector (for \code{initial_transition}).
+#' @seealso \code{\linkS4class{EMM}} which contains
+#' \code{\linkS4class{TRACDS}}
+#' @examples data("EMMTraffic")
+#' emm <- EMM(measure="eJaccard", threshold=0.2)
+#' emm <- build(emm, EMMTraffic)
+#'
+#' ## get transition matrix
+#' transition_matrix(emm, type="count", prior=FALSE)
+#' transition_matrix(emm, type="count")
+#' transition_matrix(emm, prior=FALSE)
+#' transition_matrix(emm)
+#'
+#' ## get initial state probabilities
+#' initial_transition(emm)
+#'
+#' ## access individual transition probability (state 1 -> 2)
+#' transition(emm, "1","2")
+#'
+#' ## get counts for all existing transitions
+#' tr <- transitions(emm)
+#' tr
+#' cbind(as.data.frame(tr), counts=transition(emm, tr, type="counts"))
+#' @keywords models
 setMethod("transition", signature(x = "TRACDS", from = "character", to =
     "character"), function(x,
       from,
@@ -77,6 +132,7 @@ setMethod("transition", signature(x = "TRACDS", from = "character", to =
 
 
 
+#' @rdname transition
 setMethod("transition_matrix", signature(x = "TRACDS"),
   function(x,
     type = c("probability", "counts", "log_odds"),
@@ -107,6 +163,7 @@ setMethod("transition_matrix", signature(x = "TRACDS"),
   })
 
 
+#' @rdname transition
 setMethod("initial_transition", signature(x = "TRACDS"),
   function(x,
     type = c("probability", "counts", "log_odds"),
@@ -158,6 +215,40 @@ setMethod("transition_table", signature(x = "EMM", newdata = "data.frame"),
       initial_transition
     ))
 
+#' Extract a Transition Table for a New Sequence Given an EMM
+#'
+#' @name transition_table
+#' @rdname transition_table
+#' @aliases transition_table
+#' @aliases transition_table,EMM,numeric-method
+#' @aliases transition_table,EMM,data.frame-method
+#' @aliases transition_table,EMM,matrix-method
+#' @description Finds the state sequence of a new sequence in an EMM and returns a table
+#' with the transition probabilities or counts.
+#' @param x an \code{EMM} object.
+#' @param newdata new sequence,
+#' @param type the measure to return.
+#' @param match_cluster do the new observations have to fall within
+#'     the threshold of the cluster (\code{"exact"}) or is nearest neighbor
+#'     used (\code{"nn"})?
+#' @param prior add one to each transition count. This is equal
+#'       to starting with a uniform prior for the transition count distribution,
+#' 	i.e. initially all transitions are equally likely. It also prevents the
+#' 	product of probabilities to be zero if a transition was never observed.
+#' @param initial_transition include the initial transition
+#' 	 in the table?
+#' @return A data.frame with three columns (from state, to state and the
+#'     transition probability/count.)
+#' @seealso \code{\link{transition}} to access transition probabilities
+#' and \code{\link{find_clusters}} for assigning observations to states/clusters.
+#' @examples data("EMMsim")
+#'
+#' emm <- EMM(threshold=.5)
+#' emm <- build(emm, EMMsim_train)
+#'
+#' head(transition_table(emm, EMMsim_test))
+#' head(transition_table(emm, EMMsim_test, type ="prob", initial_transition=TRUE))
+#' @keywords models
 setMethod("transition_table", signature(x = "EMM", newdata = "matrix"),
   function(x,
     newdata,

@@ -1,8 +1,19 @@
+# rEMM 1.2.3 (unreleased)
+
+* Added a getting started vignette.
+* Added a vignette on modeling temporal structure with stream clusterers and TRACDS.
+* Switch to roxygen documentation.
+* Updated and added tests. 
+* Fixed multi-step prediction, default fading, copied temporal model fading,
+  and state bookkeeping when merging, removing, or updating states. TRAC now
+  preserves cluster labels in its centers and temporal model.
+* Updated plotting and graph conversion to use current igraph function names.
+
 # Changes in version 1.2.2 (08/09/2025)
 * Fixed partial argument matching issues.
 
 # Changes in version 1.2.1 (04/21/2024)
-* added missing package anchor in man pages.
+* added missing package anchor in man pages.    
 * removed C++ code. 
 * proxy and igraph are now imported.
 

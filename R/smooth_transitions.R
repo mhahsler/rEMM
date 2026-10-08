@@ -19,6 +19,36 @@
 ### smooth transitions: Each cluster gets the average of the outgoing
 ### transition counts of all its neightbors = within range x threshold
 
+#' Smooths transition counts between neighboring states/clusters
+#'
+#' @name smooth_transitions
+#' @rdname smooth_transitions
+#' @aliases smooth_transitions
+#' @aliases smooth_transitions,EMM-method
+#' @description Each state/cluster gets the average count if all the outgoing transitions of
+#' its neighbors (i.e., clusters which are within range x its threshold).
+#' @param x an object of class \code{"EMM"}
+#' @param range threshold multiplier for the smoothing range.
+#' @param copy logical; make a copy of x before reclustering? Otherwise the function will change \code{x}!
+#' @return \code{smooth_transitions} returns invisibly an object of class \code{EMM}.
+#'     If \code{copy=FALSE} then it returns a reference to the changes
+#'     object passed as \code{x}.
+#' @seealso \code{\link{prune}}
+#' @examples data("EMMTraffic")
+#'
+#' ## learn a model
+#' emm <- EMM(threshold=0.2, measure="eJaccard")
+#' build(emm, EMMTraffic)
+#'
+#' ## smooth the model by adding tansitions
+#' emm_s <- smooth_transitions(emm)
+#'
+#' ## compare graphs
+#' op <- par(mfrow = c(1, 2), pty = "m")
+#' plot(emm, method="MDS", main="Original")
+#' plot(emm_s, method="MDS", main="Smoothed")
+#' par(op)
+#' @keywords manip
 setMethod("smooth_transitions", signature(x = "EMM"),
   function(x, range = 2, copy = TRUE) {
     if (copy)

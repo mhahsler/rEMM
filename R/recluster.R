@@ -34,6 +34,88 @@
 }
 
 ## hierarchical clustering
+#' Reclustering EMM states
+#'
+#' @name recluster
+#' @rdname recluster
+#' @aliases recluster
+#' @aliases recluster_hclust
+#' @aliases recluster_hclust,EMM-method
+#' @aliases recluster_kmeans
+#' @aliases recluster_kmeans,EMM-method
+#' @aliases recluster_pam
+#' @aliases recluster_pam,EMM-method
+#' @aliases recluster_tNN
+#' @aliases recluster_tNN,EMM-method
+#' @aliases recluster_reachability
+#' @aliases recluster_reachability,EMM-method
+#' @aliases recluster_transitions
+#' @aliases recluster_transitions,EMM-method
+#' @description Use various clustering methods to recluster states/clusters
+#' in an EMM. The centers of the clusters in the EMM object are used as
+#' data points by the reclustering algorithm. States/centers put by reclustering
+#' into the same cluster are merged to produce a new reclustered EMM.
+#' @param x an \code{"EMM"} object.
+#' @param k number of clusters.
+#' @param h heights where the dendrogram tree should be cut.
+#' @param threshold threshold used on the dissimilarity to join
+#'     clusters for tNN. If no threshold is specified then the threshold
+#'     stored in the EMM is used.
+#' @param method clustering method used by \code{hclust}.
+#' @param ... additional arguments passed on to the clustering algorithm.
+#' @param prune logical; prune states with less
+#' 	than \code{prune} counts before reclustering.
+#' @param copy logical; make a copy of x before reclustering? Otherwise the function will change \code{x}!
+#' @details For \code{recluster_kmeans} \code{k} can also be a set of initial cluster
+#' centers (see argument \code{centers} for \code{kmeans} in package \pkg{stats}).
+#'
+#' For \code{recluster_hclust} \code{k} or \code{h} can also be a vector.
+#' The result is then a list with several (nested) EMMs, one for each value.
+#'
+#' For \code{recluster_reachability} reclusters all clusters which are reachable
+#' from each other. A cluster \eqn{j} is reachable from \eqn{i} if
+#' \eqn{j}'s center is closer to \eqn{i}'s center than \code{h} or if \eqn{j} is
+#' reachable by any cluster reachable by \eqn{i}.
+#'
+#' For \code{recluster_tNN} reclusters such that two clusters with
+#' centers less than the threshold apart will be reclustered into a
+#' single cluster. This is useful, for example, after combining two models.
+#'
+#' For \code{recluster_transitions} does not recluster clusters!
+#' It find groups of clusters which are overlapping (centers are
+#' less than 2 thresholds apart) and then redistributes the transition weights
+#' such that all members of one group are connected to all the members of the
+#' other group using the same weight.
+#' @return An object of class \code{"EMM"} or, if \code{copy=FALSE} a refernece
+#' to the changed object passed as \code{x}.
+#'
+#' Clustering information is available
+#' as the attribute \code{"cluster_info"}.
+#' The information provided depends
+#' in the clustering algorithm (see \code{hclust}, \code{kmeans} and \code{pam}).
+#' @seealso \code{\link{merge_clusters}}, \code{\link{prune}},
+#' 	\code{\link[stats]{kmeans}}, \code{\link[stats]{hclust}},
+#' 	\code{\link[cluster]{pam}}
+#' @examples data(EMMsim)
+#' emm <- EMM(threshold = .2)
+#' build(emm, EMMsim_train)
+#'
+#' ## do reclustering on a copy of the emm and plot dendrogram
+#' emm_hc <- recluster_hclust(emm, h = 0.6)
+#'
+#' attr(emm_hc, "cluster_info")
+#'
+#' ## compare original and clustered EMM
+#' op <- par(mfrow = c(2, 2), pty = "m")
+#' plot(emm, method= "MDS", main ="original EMM", data = EMMsim_train)
+#' plot(attr(emm_hc, "cluster_info")$dendrogram)
+#' abline(h=0.6, col="red")
+#' plot(emm_hc, method="MDS", main ="clustered EMM", data = EMMsim_train)
+#' plot(emm_hc, method="MDS", main ="clustered EMM")
+#' par(op)
+#' @keywords manip
+#' @keywords models
+#' @keywords cluster
 setMethod("recluster_hclust", signature(x = "EMM"),
   function(x,
     k = NULL,
@@ -102,6 +184,7 @@ setMethod("recluster_hclust", signature(x = "EMM"),
   })
 
 ## k-means (euclidean)
+#' @rdname recluster
 setMethod("recluster_kmeans", signature(x = "EMM"),
   function(x,
     k,
@@ -144,6 +227,7 @@ setMethod("recluster_kmeans", signature(x = "EMM"),
   })
 
 ## Partitioning around medoids (k-medians)
+#' @rdname recluster
 setMethod("recluster_pam", signature(x = "EMM"),
   function(x,
     k,
@@ -182,6 +266,7 @@ setMethod("recluster_pam", signature(x = "EMM"),
   })
 
 ## reachability
+#' @rdname recluster
 setMethod("recluster_reachability", signature(x = "EMM"),
   function(x,
     h,
@@ -227,6 +312,7 @@ setMethod("recluster_reachability", signature(x = "EMM"),
 
 
 ## tNN
+#' @rdname recluster
 setMethod("recluster_tNN", signature(x = "EMM"),
   function(x,
     threshold = NULL,
@@ -271,6 +357,7 @@ setMethod("recluster_tNN", signature(x = "EMM"),
 ## transitions: group all states which intersecting radius
 ## and then homogenizes transitions between groups.
 ## Note: does not cluster states!
+#' @rdname recluster
 setMethod("recluster_transitions", signature(x = "EMM"),
   function(x,
     threshold = NULL,

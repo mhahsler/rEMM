@@ -19,6 +19,48 @@
 ## update for TRACDS for cluster assignments
 
 ### alias update
+#' Update a TRACDS temporal structure with new state assignements
+#'
+#' @name update
+#' @rdname update
+#' @aliases update
+#' @aliases update,TRACDS-method
+#' @aliases reset
+#' @aliases reset,TRACDS-method
+#' @aliases compact
+#' @aliases compact,TRACDS-method
+#' @description Add a sequence of new state assignments to a TRACDS object.
+#' @param x,object a \code{TRACDS} object. Note that this function changes the original object!
+#' @param newdata a vector with a state assignemnt sequence (typically
+#'   produced by clustering).
+#' @param verbose logical; verbose output?
+#' @param ... further arguments.
+#' @details \code{update()}
+#'     adds a new state assignemnt sequenc to the TRACDS object by increasing the
+#'     transition counts and, if needed, creating new states.
+#'
+#'     \code{reset()} resets the current state to \code{NA} for reading in a
+#'     new sequence. An \code{NA} in \code{newdata}
+#'     also resets the current state.
+#'
+#'     \code{compact()} reduces the size (memory) used to store the temporal
+#'     transition matrix.
+#' @return A reference to the changed TRACDS object with the data added.
+#' Note: EMM objects store all variable data in an environment which
+#' enables us to update partial data without copying the whole object. Assignment
+#' will not create a copy! Use the provided method \code{copy()}.
+#' @seealso Class \code{\linkS4class{TRACDS}},
+#' 	\code{\link{fade}}.
+#' @examples ## create an empty TRACDS object
+#' tracds <- TRACDS()
+#' tracds
+#'
+#' ## update with an cluster assignment sequence
+#' update(tracds, c(1,2,5,5,2))
+#' tracds
+#'
+#' plot(tracds)
+#' @keywords models
 setMethod("update", signature(object = "TRACDS"),
   function(object, newdata, verbose = FALSE, ...) {
     if (verbose)
@@ -76,8 +118,10 @@ setMethod("update", signature(object = "TRACDS"),
       pos
     }
 
-    ## get position of current date in matrix
-    pos_current <- which(states(x) == current_state(x))
+    ## use storage positions because removed states can leave gaps
+    pos_current <- match(current_state(x), names(tracds_d$mm@initial_counts))
+    if (is.na(current_state(x)) || is.na(pos_current))
+      pos_current <- integer(0)
     i <- 1
 
     ## iterate over cluster assignments in newdata
@@ -104,10 +148,10 @@ setMethod("update", signature(object = "TRACDS"),
 
 
       ## state exists?
-      pos_new <- which(states(x) == sel)
+      pos_new <- match(sel, names(tracds_d$mm@initial_counts))
 
       ## no: create state
-      if (!length(pos_new))
+      if (is.na(pos_new))
         pos_new <- .addState(sel)
 
       ## add transition

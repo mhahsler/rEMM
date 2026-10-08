@@ -8,34 +8,19 @@ downloads](https://cranlogs.r-pkg.org/badges/rEMM)](https://CRAN.R-project.org/p
 ![License](https://img.shields.io/cran/l/rEMM) [![r-universe
 status](https://mhahsler.r-universe.dev/badges/rEMM)](https://mhahsler.r-universe.dev/rEMM)
 
+**Maintainer:** [Michael Hahsler](https://michael.hahsler.net)
+
 Implements TRACDS (Temporal Relationships between Clusters for Data
-Streams), a generalization of Extensible Markov Model (EMM), to model
-transition probabilities in sequence data. TRACDS adds a temporal or
-order model to data stream clustering by superimposing a dynamically
-adapting Markov Chain. Also provides an implementation of EMM (TRACDS on
-top of tNN data stream clustering).
+Streams), a generalization of the Extensible Markov Model (EMM), to
+model transition probabilities in sequence data (Hahsler and Dunham
+2011). TRACDS adds a temporal or order model to data stream clustering
+by superimposing a dynamically adapting Markov chain. It also provides
+an implementation of EMM (TRACDS on top of tNN data stream clustering)
+(Hahsler and Dunham 2010).
 
-Interface classes DSC_tNN and DSC_EMM for the [stream
-package](https://github.com/mhahsler/stream) are provided.
-
-To cite package ‘rEMM’ in publications use:
-
-> Hahsler M, Dunham M (2010). “rEMM: Extensible Markov Model for Data
-> Stream Clustering in R.” *Journal of Statistical Software*, *35*(5),
-> 1-31. ISSN 1548-7660, <doi:10.18637/jss.v035.i05>
-> <https://doi.org/10.18637/jss.v035.i05>.
-
-    @Article{,
-      title = {{rEMM}: Extensible Markov Model for Data Stream Clustering in {R}},
-      author = {Michael Hahsler and Margaret H. Dunham},
-      journal = {Journal of Statistical Software},
-      year = {2010},
-      volume = {35},
-      number = {5},
-      pages = {1--31},
-      doi = {10.18637/jss.v035.i05},
-      issn = {1548-7660},
-    }
+The package also provides interface classes DSC_tNN and DSC_EMM for data
+stream mining with [`stream`](https://michael.hahsler.net/stream/)
+(Hahsler et al. 2017).
 
 ## Installation
 
@@ -56,9 +41,9 @@ install.packages("rEMM",
 
 ## Usage
 
-We use a artificial dataset with a mixture of four clusters components.
-Points are generated using a fixed sequence \<1,2,1,3,4\> through the
-four clusters. The lines below indicate the sequence.
+We use an artificial dataset with four clusters. Points are generated
+using the fixed sequence \<1,2,1,3,4\> through the four clusters. The
+lines below indicate the sequence.
 
 ``` r
 library(rEMM)
@@ -70,25 +55,26 @@ lines(EMMsim_train, col = "gray")
 points(EMMsim_train, pch = EMMsim_sequence_train)
 ```
 
-![](inst/README_files/example_data-1.png)<!-- -->
+![](man/figures/README-example_data-1.png)<!-- -->
 
-EMM recovers the components and the sequence information. We use EMM and
-then recluster the found structure assuming that we know that there are
-4 components. The graph below represents a Markov model of the found
+EMM recovers the components and sequence information. We use EMM and
+then recluster the learned structure, assuming that we know there are
+four components. The graph below represents a Markov model of the
 sequence.
 
 ``` r
 emm <- EMM(threshold = 0.1, measure = "euclidean")
 build(emm, EMMsim_train)
 emmc <- recluster_hclust(emm, k = 4, method = "average")
-plot(emmc)
+plot(emmc, method = "MDS")
 ```
 
-![](inst/README_files/example_model-1.png)<!-- -->
+![](man/figures/README-example_model-1.png)<!-- -->
 
-We can now score new sequences (we use a test sequence created in the
-same way as the training data) by calculating the product the transition
-probabilities in the model. The high score indicates this.
+We can now score new sequences. Here, we use a test sequence created in
+the same way as the training data and calculate the product of the
+transition probabilities in the model. A high score indicates a good
+match.
 
 ``` r
 score(emmc, EMMsim_test)
@@ -96,18 +82,52 @@ score(emmc, EMMsim_test)
 
     ## [1] 0.71
 
-# References
+## Vignettes
 
-- Michael Hahsler and Margaret H. Dunham. [rEMM: Extensible Markov model
-  for data stream clustering in
-  R.](http://dx.doi.org/10.18637/jss.v035.i05) *Journal of Statistical
-  Software,* 35(5):1-31, 2010.
-- Michael Hahsler and Margaret H. Dunham. [Temporal structure learning
-  for clustering massive data streams in
-  real-time](https://doi.org/10.1137/1.9781611972818.57). In *SIAM
-  Conference on Data Mining (SDM11),* pages 664–675. SIAM, April 2011.
+- [Getting started with
+  rEMM](https://michael.hahsler.net/rEMM/articles/rEMM.html) introduces
+  building, inspecting, and using an EMM.
+- [Adding temporal structure modeling to standard
+  clustering](https://michael.hahsler.net/rEMM/articles/TRAC.html) shows
+  how to add a temporal model to clustering methods such as k-means.
+- [Adding temporal structure modeling to stream
+  clustering](https://michael.hahsler.net/rEMM/articles/stream.html)
+  connects stream clusterers to TRACDS.
 
 # Acknowledgements
 
 Development of this package was supported in part by NSF IIS-0948893 and
 R21HG005912 from the National Human Genome Research Institute.
+
+# References
+
+<div id="refs" class="references csl-bib-body hanging-indent">
+
+<div id="ref-Hahsler:2017" class="csl-entry">
+
+Hahsler, Michael, Matthew Bolaños, and John Forrest. 2017. “Introduction
+to Stream: An Extensible Framework for Data Stream Clustering Research
+with r.” *Journal of Statistical Software* 76 (14): 1–50.
+<https://doi.org/10.18637/jss.v076.i14>.
+
+</div>
+
+<div id="ref-Hahsler+Dunham:2010" class="csl-entry">
+
+Hahsler, Michael, and Margaret H. Dunham. 2010.
+“<span class="nocase">rEMM</span>: Extensible Markov Model for Data
+Stream Clustering in R.” *Journal of Statistical Software* 35 (5): 1–31.
+<https://doi.org/10.18637/jss.v035.i05>.
+
+</div>
+
+<div id="ref-Hahsler+Dunham:2011" class="csl-entry">
+
+Hahsler, Michael, and Margaret H. Dunham. 2011. “Temporal Structure
+Learning for Clustering Massive Data Streams in Real-Time.” *Proceedings
+of the 2011 SIAM International Conference on Data Mining*, 664–75.
+<https://doi.org/10.1137/1.9781611972818.57>.
+
+</div>
+
+</div>

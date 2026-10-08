@@ -1,0 +1,50 @@
+url: http://michael.hahsler.net/rEMM/
+template:
+  bootstrap: 5
+  math-rendering: mathjax
+
+reference:
+  - title: Package Overview
+    contents:
+      - rEMM-package
+  - title: Models
+    contents:
+      - EMM
+      - tNN
+      - TRACDS
+  - title: Building models
+    contents:
+      - build
+      - cluster
+      - update
+  - title: Working with the models
+    contents:
+      - plot
+      - find_clusters
+      - recluster
+      - merge_clusters
+      - remove
+      - prune
+      - fade
+      - combine
+  - title: Transitions and sequence analysis
+    contents:
+      - transition
+      - transition_table
+      - smooth_transitions
+      - score
+      - predict
+  - title: Temporal Structure for Standard Clustering Algorithms
+    contents:
+      - TRAC
+  - title: Stream Interface Classes
+    contents:
+      - DSC_EMM
+      - DSC_tNN
+  - title: Data
+    contents:
+      - synthetic_stream
+      - EMMsim
+      - EMMTraffic
+      - Derwent
+      - rRNA16S
