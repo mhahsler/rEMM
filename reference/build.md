@@ -87,8 +87,8 @@ emm2<- copy(emm)
 
 ## convert the emm into a graph
 as.igraph(emm)
-#> IGRAPH 341540d DNW- 7 9 -- 
+#> IGRAPH 45c2053 DNW- 7 9 -- 
 #> + attr: name (v/c), weight (e/n)
-#> + edges from 341540d (vertex names):
+#> + edges from 45c2053 (vertex names):
 #> [1] 1->2 2->1 2->3 2->6 3->4 4->5 5->2 5->7 6->4
 ```
