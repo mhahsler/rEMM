@@ -2,7 +2,7 @@ name: Check Links
 
 on:
   push:
-    branches: ["master"]
+    branches: ["master", "main"]
 
 jobs:
   linkChecker:
