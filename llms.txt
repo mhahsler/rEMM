@@ -1,0 +1,233 @@
+# R package rEMM - Extensible Markov Model for Modelling Temporal Relationships Between Clusters
+
+[![Package on
+CRAN](https://www.r-pkg.org/badges/version/rEMM)](https://CRAN.R-project.org/package=rEMM)
+[![CRAN RStudio mirror
+downloads](https://cranlogs.r-pkg.org/badges/rEMM)](https://CRAN.R-project.org/package=rEMM)
+![License](https://img.shields.io/cran/l/rEMM)[![r-universe
+status](https://mhahsler.r-universe.dev/badges/rEMM)](https://mhahsler.r-universe.dev/rEMM)
+
+**Maintainer:** [Michael Hahsler](https://michael.hahsler.net)
+
+Implements TRACDS (Temporal Relationships between Clusters for Data
+Streams), a generalization of the Extensible Markov Model (EMM), to
+model transition probabilities in sequence data (Hahsler and Dunham
+2011). TRACDS adds a temporal or order model to data stream clustering
+by superimposing a dynamically adapting Markov chain. It also provides
+an implementation of EMM (TRACDS on top of tNN data stream clustering)
+(Hahsler and Dunham 2010).
+
+The package also provides interface classes DSC_tNN and DSC_EMM for data
+stream mining with [`stream`](https://michael.hahsler.net/stream/)
+(Hahsler et al. 2017).
+
+## Installation
+
+**Stable CRAN version:** Install from within R with
+
+``` r
+
+install.packages("rEMM")
+```
+
+**Current development version:** Install from
+[r-universe.](https://mhahsler.r-universe.dev/rEMM)
+
+``` r
+
+install.packages("rEMM",
+    repos = c("https://mhahsler.r-universe.dev",
+              "https://cloud.r-project.org/"))
+```
+
+## Usage
+
+We use an artificial dataset with four clusters. Points are generated
+using the fixed sequence \<1,2,1,3,4\> through the four clusters. The
+lines below indicate the sequence.
+
+``` r
+
+library(rEMM)
+
+data("EMMsim")
+
+plot(EMMsim_train, pch = NA)
+lines(EMMsim_train, col = "gray")
+points(EMMsim_train, pch = EMMsim_sequence_train)
+```
+
+![](reference/figures/README-example_data-1.png)
+
+EMM recovers the components and sequence information. We use EMM and
+then recluster the learned structure, assuming that we know there are
+four components. The graph below represents a Markov model of the
+sequence.
+
+``` r
+
+emm <- EMM(threshold = 0.1, measure = "euclidean")
+build(emm, EMMsim_train)
+emmc <- recluster_hclust(emm, k = 4, method = "average")
+plot(emmc, method = "MDS")
+```
+
+![](reference/figures/README-example_model-1.png)
+
+We can now score new sequences. Here, we use a test sequence created in
+the same way as the training data and calculate the product of the
+transition probabilities in the model. A high score indicates a good
+match.
+
+``` r
+
+score(emmc, EMMsim_test)
+```
+
+``` R
+## [1] 0.71
+```
+
+## Vignettes
+
+- [Getting started with
+  rEMM](https://michael.hahsler.net/rEMM/articles/rEMM.html) introduces
+  building, inspecting, and using an EMM.
+- [Adding temporal structure modeling to standard
+  clustering](https://michael.hahsler.net/rEMM/articles/TRAC.html) shows
+  how to add a temporal model to clustering methods such as k-means.
+- [Adding temporal structure modeling to stream
+  clustering](https://michael.hahsler.net/rEMM/articles/stream.html)
+  connects stream clusterers to TRACDS.
+
+# Acknowledgements
+
+Development of this package was supported in part by NSF IIS-0948893 and
+R21HG005912 from the National Human Genome Research Institute.
+
+# References
+
+Hahsler, Michael, Matthew Bolaños, and John Forrest. 2017. “Introduction
+to Stream: An Extensible Framework for Data Stream Clustering Research
+with r.” *Journal of Statistical Software* 76 (14): 1–50.
+<https://doi.org/10.18637/jss.v076.i14>.
+
+Hahsler, Michael, and Margaret H. Dunham. 2010. “rEMM: Extensible Markov
+Model for Data Stream Clustering in R.” *Journal of Statistical
+Software* 35 (5): 1–31. <https://doi.org/10.18637/jss.v035.i05>.
+
+Hahsler, Michael, and Margaret H. Dunham. 2011. “Temporal Structure
+Learning for Clustering Massive Data Streams in Real-Time.” *Proceedings
+of the 2011 SIAM International Conference on Data Mining*, 664–75.
+<https://doi.org/10.1137/1.9781611972818.57>.
+
+# Package index
+
+## Package Overview
+
+- [`rEMM`](http://michael.hahsler.net/rEMM/reference/rEMM-package.md)
+  [`rEMM-package`](http://michael.hahsler.net/rEMM/reference/rEMM-package.md)
+  : Extensible Markov Models for Sequence Data
+
+## Models
+
+- [`EMM()`](http://michael.hahsler.net/rEMM/reference/EMM-class.md) :
+  Class "EMM"
+- [`tNN()`](http://michael.hahsler.net/rEMM/reference/tNN-class.md) :
+  Class "tNN"
+- [`TRACDS()`](http://michael.hahsler.net/rEMM/reference/TRACDS-class.md)
+  [`as.igraph()`](http://michael.hahsler.net/rEMM/reference/TRACDS-class.md)
+  [`as.graph()`](http://michael.hahsler.net/rEMM/reference/TRACDS-class.md)
+  : Class "TRACDS"
+
+## Building models
+
+- [`build()`](http://michael.hahsler.net/rEMM/reference/build.md) :
+  Building an EMM using New Data
+- [`cluster()`](http://michael.hahsler.net/rEMM/reference/cluster.md) :
+  Data stream clustering with tNN
+- [`compact(`*`<TRACDS>`*`)`](http://michael.hahsler.net/rEMM/reference/update.md)
+  [`reset(`*`<TRACDS>`*`)`](http://michael.hahsler.net/rEMM/reference/update.md)
+  [`update(`*`<TRACDS>`*`)`](http://michael.hahsler.net/rEMM/reference/update.md)
+  : Update a TRACDS temporal structure with new state assignements
+
+## Working with the models
+
+- [`plot(`*`<EMM>`*`,`*`<missing>`*`)`](http://michael.hahsler.net/rEMM/reference/plot.EMM.md)
+  : Visualize EMM Objects
+- [`find_clusters(`*`<tNN>`*`,`*`<matrix>`*`)`](http://michael.hahsler.net/rEMM/reference/find_clusters.md)
+  : Find the EMM State/Cluster for an Observation
+- [`recluster_hclust(`*`<EMM>`*`)`](http://michael.hahsler.net/rEMM/reference/recluster.md)
+  [`recluster_kmeans(`*`<EMM>`*`)`](http://michael.hahsler.net/rEMM/reference/recluster.md)
+  [`recluster_pam(`*`<EMM>`*`)`](http://michael.hahsler.net/rEMM/reference/recluster.md)
+  [`recluster_reachability(`*`<EMM>`*`)`](http://michael.hahsler.net/rEMM/reference/recluster.md)
+  [`recluster_tNN(`*`<EMM>`*`)`](http://michael.hahsler.net/rEMM/reference/recluster.md)
+  [`recluster_transitions(`*`<EMM>`*`)`](http://michael.hahsler.net/rEMM/reference/recluster.md)
+  : Reclustering EMM states
+- [`merge_clusters(`*`<EMM>`*`,`*`<character>`*`)`](http://michael.hahsler.net/rEMM/reference/merge.md)
+  : Merge States of an EMM
+- [`remove_clusters()`](http://michael.hahsler.net/rEMM/reference/remove.md)
+  [`remove_transitions()`](http://michael.hahsler.net/rEMM/reference/remove.md)
+  [`remove_selftransitions()`](http://michael.hahsler.net/rEMM/reference/remove.md)
+  : Remove States/Clusters or Transitions from an EMM
+- [`rare_transitions()`](http://michael.hahsler.net/rEMM/reference/prune.md)
+  [`rare_clusters()`](http://michael.hahsler.net/rEMM/reference/prune.md)
+  [`prune(`*`<EMM>`*`)`](http://michael.hahsler.net/rEMM/reference/prune.md)
+  : Prune States and/or Transitions
+- [`fade()`](http://michael.hahsler.net/rEMM/reference/fade.md) : Fading
+  Cluster Structure and EMM Layer
+- [`c(`*`<EMM>`*`)`](http://michael.hahsler.net/rEMM/reference/combine.md)
+  : Combining EMM Objects
+
+## Transitions and sequence analysis
+
+- [`transition(`*`<TRACDS>`*`,`*`<character>`*`,`*`<character>`*`)`](http://michael.hahsler.net/rEMM/reference/transition.md)
+  [`transition_matrix(`*`<TRACDS>`*`)`](http://michael.hahsler.net/rEMM/reference/transition.md)
+  [`initial_transition(`*`<TRACDS>`*`)`](http://michael.hahsler.net/rEMM/reference/transition.md)
+  : Access Transition Probabilities/Counts in an EMM
+- [`transition_table(`*`<EMM>`*`,`*`<matrix>`*`)`](http://michael.hahsler.net/rEMM/reference/transition_table.md)
+  : Extract a Transition Table for a New Sequence Given an EMM
+- [`smooth_transitions(`*`<EMM>`*`)`](http://michael.hahsler.net/rEMM/reference/smooth_transitions.md)
+  : Smooths transition counts between neighboring states/clusters
+- [`score(`*`<EMM>`*`,`*`<matrix>`*`)`](http://michael.hahsler.net/rEMM/reference/score.md)
+  [`score(`*`<EMM>`*`,`*`<EMM>`*`)`](http://michael.hahsler.net/rEMM/reference/score.md)
+  : Score a New Sequence Given an EMM
+- [`predict(`*`<TRACDS>`*`)`](http://michael.hahsler.net/rEMM/reference/predict.md)
+  : Predict a Future State
+
+## Temporal Structure for Standard Clustering Algorithms
+
+- [`TRAC()`](http://michael.hahsler.net/rEMM/reference/TRAC-class.md) :
+  TRAC: Creating a Markov Model from a Regular Clustering
+
+## Stream Interface Classes
+
+- [`DSC_EMM()`](http://michael.hahsler.net/rEMM/reference/DSC_EMM.md)
+  [`get_EMM()`](http://michael.hahsler.net/rEMM/reference/DSC_EMM.md)
+  [`set_EMM()`](http://michael.hahsler.net/rEMM/reference/DSC_EMM.md)
+  [`DSC_tNN()`](http://michael.hahsler.net/rEMM/reference/DSC_EMM.md) :
+  DSC Interface for EMM and tNN (package stream)
+
+## Data
+
+- [`synthetic_stream()`](http://michael.hahsler.net/rEMM/reference/synthetic_stream.md)
+  : Create a Synthetic Data Stream
+- [`EMMsim`](http://michael.hahsler.net/rEMM/reference/EMMsim.md) :
+  Synthetic Data to Demonstrate EMMs
+- [`EMMTraffic`](http://michael.hahsler.net/rEMM/reference/EMMTraffic.md)
+  : Hypothetical Traffic Data Set for EMM
+- [`Derwent`](http://michael.hahsler.net/rEMM/reference/Derwent.md) :
+  Derwent Catchment Data
+- [`` `16S` ``](http://michael.hahsler.net/rEMM/reference/rRNA16S.md) :
+  Count Data for 16S rRNA Sequences
+
+# Articles
+
+### All vignettes
+
+- [Getting started with
+  rEMM](http://michael.hahsler.net/rEMM/articles/rEMM.md):
+- [Adding temporal structure modeling to stream
+  clustering](http://michael.hahsler.net/rEMM/articles/stream.md):
+- [Adding temporal structure modeling to standard
+  clustering](http://michael.hahsler.net/rEMM/articles/TRAC.md):
