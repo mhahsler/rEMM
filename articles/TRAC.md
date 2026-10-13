@@ -4,8 +4,8 @@
 
 Standard clustering methods such as k-means group observations by
 similarity, but do not model the order in which observations occurred.
-[`TRAC()`](http://michael.hahsler.net/rEMM/reference/TRAC-class.md) adds
-a Markov model of transitions between the resulting clusters. The
+[`TRAC()`](https://michael.hahsler.net/rEMM/reference/TRAC-class.md)
+adds a Markov model of transitions between the resulting clusters. The
 observations must be in sequence order: their row order determines which
 cluster transitions are recorded.
 
@@ -62,7 +62,7 @@ cl
 ## Add the temporal model
 
 Pass the clustering result to
-[`TRAC()`](http://michael.hahsler.net/rEMM/reference/TRAC-class.md). It
+[`TRAC()`](https://michael.hahsler.net/rEMM/reference/TRAC-class.md). It
 uses the k-means centers and assignments to create an EMM, then
 processes the assignments in their original order to learn transitions.
 The result contains both the clusters and their temporal relationships.
@@ -93,10 +93,10 @@ Clusters and learned transitions from the ordered sequence.
 
 If a different clustering algorithm is used that does not produce a
 standard clustering object, then
-[`TRAC()`](http://michael.hahsler.net/rEMM/reference/TRAC-class.md) also
-accepts a vector of cluster assignments. In that case, provide the data
-used for clustering so it can calculate cluster centers and distance
-thresholds:
+[`TRAC()`](https://michael.hahsler.net/rEMM/reference/TRAC-class.md)
+also accepts a vector of cluster assignments. In that case, provide the
+data used for clustering so it can calculate cluster centers and
+distance thresholds:
 
 ``` r
 

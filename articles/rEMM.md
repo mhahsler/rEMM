@@ -87,9 +87,9 @@ legend("topleft", legend = paste("Cluster", 1:4), pch = 1:4, bty = "n")
 
 ## Build and inspect an EMM
 
-[`EMM()`](http://michael.hahsler.net/rEMM/reference/EMM-class.md)
+[`EMM()`](https://michael.hahsler.net/rEMM/reference/EMM-class.md)
 creates an empty model.
-[`build()`](http://michael.hahsler.net/rEMM/reference/build.md)
+[`build()`](https://michael.hahsler.net/rEMM/reference/build.md)
 processes observations in row order, assigns them to clusters, and
 records transitions between states. For the threshold nearest neighbor
 clustering approach (`tNN`), a new observation joins the closest cluster
@@ -116,15 +116,15 @@ within the four generating clusters. The threshold is expressed in the
 units of the chosen distance measure and should be chosen for the scale
 of your data.
 
-[`size()`](http://michael.hahsler.net/rEMM/reference/EMM-class.md)
+[`size()`](https://michael.hahsler.net/rEMM/reference/EMM-class.md)
 returns the number of clusters,
-[`cluster_centers()`](http://michael.hahsler.net/rEMM/reference/tNN-class.md)
+[`cluster_centers()`](https://michael.hahsler.net/rEMM/reference/tNN-class.md)
 returns their representative coordinates, and
-[`cluster_counts()`](http://michael.hahsler.net/rEMM/reference/tNN-class.md)
+[`cluster_counts()`](https://michael.hahsler.net/rEMM/reference/tNN-class.md)
 reports how many observations have been assigned to each cluster.
-[`last_clustering()`](http://michael.hahsler.net/rEMM/reference/tNN-class.md)
+[`last_clustering()`](https://michael.hahsler.net/rEMM/reference/tNN-class.md)
 retains the cluster assignments of data points from the most recent
-[`build()`](http://michael.hahsler.net/rEMM/reference/build.md) call.
+[`build()`](https://michael.hahsler.net/rEMM/reference/build.md) call.
 
 ``` r
 
@@ -192,7 +192,7 @@ cluster_counts(emm4)
 #> 80 40 40 40
 ```
 
-[`recluster_hclust()`](http://michael.hahsler.net/rEMM/reference/recluster.md)
+[`recluster_hclust()`](https://michael.hahsler.net/rEMM/reference/recluster.md)
 merges both the clusters and their transition information. The
 reclustered model
 
@@ -226,9 +226,9 @@ transition_matrix(emm4, prior = FALSE)
 
 ## Score a new sequence
 
-[`score()`](http://michael.hahsler.net/rEMM/reference/score.md) measures
-how well a new sequence of data points agrees with the learned model.
-Points are assigned to existing clusters, and the transitions are
+[`score()`](https://michael.hahsler.net/rEMM/reference/score.md)
+measures how well a new sequence of data points agrees with the learned
+model. Points are assigned to existing clusters, and the transitions are
 scored.
 
 Here, we use `method = "product"`, which multiplies the transition
@@ -256,7 +256,7 @@ structure was destroyed, has a probability close to 0.
 ## Predict a future state
 
 Given a current state,
-[`predict()`](http://michael.hahsler.net/rEMM/reference/predict.md)
+[`predict()`](https://michael.hahsler.net/rEMM/reference/predict.md)
 returns a future state or a probability distribution over states. Here
 we request the distribution 2 steps ahead from the state with label
 `"1"`.
@@ -275,17 +275,17 @@ We see that states 1 and 5 are more likely then the others.
 
 For performance reasons, EMM objects are implemented as mutable objects
 using the S4 class system.
-[`build()`](http://michael.hahsler.net/rEMM/reference/build.md)
+[`build()`](https://michael.hahsler.net/rEMM/reference/build.md)
 therefore changes an EMM in place and to create a copy the
-[`copy()`](http://michael.hahsler.net/rEMM/reference/EMM-class.md)
+[`copy()`](https://michael.hahsler.net/rEMM/reference/EMM-class.md)
 function has to be explicitly called. For additional batches from the
 same sequence, call
-[`build()`](http://michael.hahsler.net/rEMM/reference/build.md) again
+[`build()`](https://michael.hahsler.net/rEMM/reference/build.md) again
 and the model records the transition from the previous batch’s last
 state to the next batch’s first state. For an independent sequence, call
-[`reset()`](http://michael.hahsler.net/rEMM/reference/update.md) first
+[`reset()`](https://michael.hahsler.net/rEMM/reference/update.md) first
 to avoid creating a transition between unrelated sequences.
-[`reset()`](http://michael.hahsler.net/rEMM/reference/update.md) clears
+[`reset()`](https://michael.hahsler.net/rEMM/reference/update.md) clears
 the current state while retaining the learned clusters and counts.
 
 Next, we make a copy of the current EMM, start a new sequence and add
@@ -306,34 +306,34 @@ c(
 ```
 
 For streams whose behavior changes over time, the `lambda` argument for
-[`EMM()`](http://michael.hahsler.net/rEMM/reference/EMM-class.md)
+[`EMM()`](https://michael.hahsler.net/rEMM/reference/EMM-class.md)
 enables fading so older observations and transitions have less
 influence. The default `lambda = 0` retains their full weight. See
-[`fade()`](http://michael.hahsler.net/rEMM/reference/fade.md) and
-[`prune()`](http://michael.hahsler.net/rEMM/reference/prune.md) for
+[`fade()`](https://michael.hahsler.net/rEMM/reference/fade.md) and
+[`prune()`](https://michael.hahsler.net/rEMM/reference/prune.md) for
 fading and removal of rare states or transitions.
 
 ## Next steps
 
-[`DSC_EMM()`](http://michael.hahsler.net/rEMM/reference/DSC_EMM.md) and
-[`DSC_tNN()`](http://michael.hahsler.net/rEMM/reference/DSC_EMM.md)
+[`DSC_EMM()`](https://michael.hahsler.net/rEMM/reference/DSC_EMM.md) and
+[`DSC_tNN()`](https://michael.hahsler.net/rEMM/reference/DSC_EMM.md)
 interfaces let you use these algorithms as
 [`stream::DSC()`](https://rdrr.io/pkg/stream/man/DSC.html) clusterers
 with the [`stream`](https://michael.hahsler.net/stream/) package. See
 [Adding temporal structure modeling to stream
-clustering](http://michael.hahsler.net/rEMM/articles/stream.md) for
+clustering](https://michael.hahsler.net/rEMM/articles/stream.md) for
 examples using clusterers from **stream**.
 
 For standard clustering methods such as k-means, see [Adding temporal
 structure modeling to standard
-clustering](http://michael.hahsler.net/rEMM/articles/TRAC.md), which
+clustering](https://michael.hahsler.net/rEMM/articles/TRAC.md), which
 demonstrates the
-[`TRAC()`](http://michael.hahsler.net/rEMM/reference/TRAC-class.md)
+[`TRAC()`](https://michael.hahsler.net/rEMM/reference/TRAC-class.md)
 interface.
 
 For the model’s background and further applications, see the [original
 paper
-vignette](http://michael.hahsler.net/rEMM/articles/rEMM_paper_vignette.pdf)
+vignette](https://michael.hahsler.net/rEMM/articles/rEMM_paper_vignette.pdf)
 and Hahsler and Dunham (2010).
 
 ## References

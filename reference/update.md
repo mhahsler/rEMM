@@ -41,7 +41,7 @@ A reference to the changed TRACDS object with the data added. Note: EMM
 objects store all variable data in an environment which enables us to
 update partial data without copying the whole object. Assignment will
 not create a copy! Use the provided method
-[`copy()`](http://michael.hahsler.net/rEMM/reference/EMM-class.md).
+[`copy()`](https://michael.hahsler.net/rEMM/reference/EMM-class.md).
 
 ## Details
 
@@ -57,8 +57,8 @@ transition matrix.
 ## See also
 
 Class
-[`TRACDS`](http://michael.hahsler.net/rEMM/reference/TRACDS-class.md),
-[`fade`](http://michael.hahsler.net/rEMM/reference/fade.md).
+[`TRACDS`](https://michael.hahsler.net/rEMM/reference/TRACDS-class.md),
+[`fade`](https://michael.hahsler.net/rEMM/reference/fade.md).
 
 ## Examples
 

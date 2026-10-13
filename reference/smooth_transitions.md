@@ -34,7 +34,7 @@ smooth_transitions(x, range = 2, copy = TRUE)
 
 ## See also
 
-[`prune`](http://michael.hahsler.net/rEMM/reference/prune.md)
+[`prune`](https://michael.hahsler.net/rEMM/reference/prune.md)
 
 ## Examples
 

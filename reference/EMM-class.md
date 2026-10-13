@@ -70,9 +70,9 @@ section Extends).
 ## Extends
 
 Class
-`"`[`tNN`](http://michael.hahsler.net/rEMM/reference/tNN-class.md)`"`,
+`"`[`tNN`](https://michael.hahsler.net/rEMM/reference/tNN-class.md)`"`,
 directly. Class
-`"`[`TRACDS`](http://michael.hahsler.net/rEMM/reference/TRACDS-class.md)`"`,
+`"`[`TRACDS`](https://michael.hahsler.net/rEMM/reference/TRACDS-class.md)`"`,
 directly.
 
 ## Methods
@@ -96,18 +96,18 @@ Data Mining,* pp. 371–374.
 
 ## See also
 
-[`build`](http://michael.hahsler.net/rEMM/reference/build.md),
-[`fade`](http://michael.hahsler.net/rEMM/reference/fade.md),
-[`merge_clusters`](http://michael.hahsler.net/rEMM/reference/merge.md),
-[`plot`](http://michael.hahsler.net/rEMM/reference/plot.EMM.md),
-[`prune`](http://michael.hahsler.net/rEMM/reference/prune.md),
-[`rare_clusters`](http://michael.hahsler.net/rEMM/reference/prune.md),
-[`rare_transitions`](http://michael.hahsler.net/rEMM/reference/prune.md),
-[`remove_clusters`](http://michael.hahsler.net/rEMM/reference/remove.md),
-[`remove_transitions`](http://michael.hahsler.net/rEMM/reference/remove.md),
-[`remove_selftransitions`](http://michael.hahsler.net/rEMM/reference/remove.md),
-[`recluster`](http://michael.hahsler.net/rEMM/reference/recluster.md),
-and [`score`](http://michael.hahsler.net/rEMM/reference/score.md).
+[`build`](https://michael.hahsler.net/rEMM/reference/build.md),
+[`fade`](https://michael.hahsler.net/rEMM/reference/fade.md),
+[`merge_clusters`](https://michael.hahsler.net/rEMM/reference/merge.md),
+[`plot`](https://michael.hahsler.net/rEMM/reference/plot.EMM.md),
+[`prune`](https://michael.hahsler.net/rEMM/reference/prune.md),
+[`rare_clusters`](https://michael.hahsler.net/rEMM/reference/prune.md),
+[`rare_transitions`](https://michael.hahsler.net/rEMM/reference/prune.md),
+[`remove_clusters`](https://michael.hahsler.net/rEMM/reference/remove.md),
+[`remove_transitions`](https://michael.hahsler.net/rEMM/reference/remove.md),
+[`remove_selftransitions`](https://michael.hahsler.net/rEMM/reference/remove.md),
+[`recluster`](https://michael.hahsler.net/rEMM/reference/recluster.md),
+and [`score`](https://michael.hahsler.net/rEMM/reference/score.md).
 
 `EMM-class`
 

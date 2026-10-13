@@ -37,8 +37,8 @@ columns "state" and "dist" if `dist=TRUE`.
 
 ## See also
 
-[`EMM`](http://michael.hahsler.net/rEMM/reference/EMM-class.md) and
-[`tNN`](http://michael.hahsler.net/rEMM/reference/tNN-class.md)
+[`EMM`](https://michael.hahsler.net/rEMM/reference/EMM-class.md) and
+[`tNN`](https://michael.hahsler.net/rEMM/reference/tNN-class.md)
 
 ## Examples
 

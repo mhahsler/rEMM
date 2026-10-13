@@ -66,9 +66,9 @@ it returns a reference to the changes object passed as `x`.
 
 ## See also
 
-[`remove_transitions`](http://michael.hahsler.net/rEMM/reference/remove.md),
-[`remove_clusters`](http://michael.hahsler.net/rEMM/reference/remove.md),
-[`compact`](http://michael.hahsler.net/rEMM/reference/update.md)
+[`remove_transitions`](https://michael.hahsler.net/rEMM/reference/remove.md),
+[`remove_clusters`](https://michael.hahsler.net/rEMM/reference/remove.md),
+[`compact`](https://michael.hahsler.net/rEMM/reference/update.md)
 
 ## Examples
 

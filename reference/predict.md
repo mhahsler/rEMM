@@ -61,7 +61,7 @@ probability matrix maintained by the EMM. Random tie-breaking is used.
 
 ## See also
 
-[`transition_matrix`](http://michael.hahsler.net/rEMM/reference/transition.md)
+[`transition_matrix`](https://michael.hahsler.net/rEMM/reference/transition.md)
 
 ## Examples
 

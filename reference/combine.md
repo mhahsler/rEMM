@@ -35,7 +35,7 @@ Returns invisibly an object of the same class as `EMM`.
 
 ## See also
 
-[`EMM-class`](http://michael.hahsler.net/rEMM/reference/EMM-class.md),
+[`EMM-class`](https://michael.hahsler.net/rEMM/reference/EMM-class.md),
 
 ## Examples
 

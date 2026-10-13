@@ -15,7 +15,7 @@ and predict future states.
 
 This vignette demonstrates how to connect data stream clustering
 algorithms in package **stream** to
-[`TRACDS()`](http://michael.hahsler.net/rEMM/reference/TRACDS-class.md)
+[`TRACDS()`](https://michael.hahsler.net/rEMM/reference/TRACDS-class.md)
 by passing cluster assignments from each batch to the temporal model.
 
 ``` r
@@ -55,14 +55,14 @@ tr <- TRACDS()
 DBSTREAM forms micro-clusters using radius `r`. We disable fading here
 with `lambda = 0` to keep the example simple. Fading in the clusterer
 and the temporal model are configured separately;
-[`TRACDS()`](http://michael.hahsler.net/rEMM/reference/TRACDS-class.md)
+[`TRACDS()`](https://michael.hahsler.net/rEMM/reference/TRACDS-class.md)
 also defaults to no fading.
 
 ## Update both models
 
 For each batch, first update the clusterer and request its assignments.
 Then pass the assigned labels to
-[`TRACDS()`](http://michael.hahsler.net/rEMM/reference/TRACDS-class.md)
+[`TRACDS()`](https://michael.hahsler.net/rEMM/reference/TRACDS-class.md)
 in observation order.
 
 ``` r
@@ -94,7 +94,7 @@ See the [DBSTREAM
 documentation](https://michael.hahsler.net/stream/reference/DSC_DBSTREAM.html)
 for details of the assignment format. Converting identifiers to
 character matches the label interface of
-[`TRACDS()`](http://michael.hahsler.net/rEMM/reference/TRACDS-class.md).
+[`TRACDS()`](https://michael.hahsler.net/rEMM/reference/TRACDS-class.md).
 
 Successive calls to `update(tr, ...)` continue the same sequence. The
 last assigned state in one batch connects to the first assigned state in
@@ -102,7 +102,7 @@ the next batch, unless an unassigned observation breaks the sequence.
 
 DBSTREAM can return `NA` for observations assigned to weak
 micro-clusters. Keep these values in the label sequence:
-[`TRACDS()`](http://michael.hahsler.net/rEMM/reference/TRACDS-class.md)
+[`TRACDS()`](https://michael.hahsler.net/rEMM/reference/TRACDS-class.md)
 treats an `NA` as a sequence boundary. Removing missing labels would
 incorrectly connect observations on either side of the gap.
 
@@ -110,7 +110,7 @@ incorrectly connect observations on either side of the gap.
 
 The model stores states for the labels it has observed and counts
 transitions between consecutive assigned observations.
-[`ntransitions()`](http://michael.hahsler.net/rEMM/reference/TRACDS-class.md)
+[`ntransitions()`](https://michael.hahsler.net/rEMM/reference/TRACDS-class.md)
 counts distinct observed transitions, including transitions back to the
 same state.
 
@@ -134,7 +134,7 @@ head(cbind(as.data.frame(edges),
 #> 6   15  1      1
 ```
 
-[`transition_matrix()`](http://michael.hahsler.net/rEMM/reference/transition.md)
+[`transition_matrix()`](https://michael.hahsler.net/rEMM/reference/transition.md)
 returns a matrix with source states in rows and destination states in
 columns. By default, `prior = TRUE` adds one to each transition count
 before calculating probabilities. Use `prior = FALSE` to inspect the
@@ -165,7 +165,7 @@ information.
 
 ## Predict the next state
 
-[`predict()`](http://michael.hahsler.net/rEMM/reference/predict.md) can
+[`predict()`](https://michael.hahsler.net/rEMM/reference/predict.md) can
 return a probability distribution over states, starting from the last
 assigned state. Here we show the six most likely states one step ahead.
 The default prior gives unobserved transitions a nonzero probability.
@@ -184,7 +184,7 @@ They can be interpreted alongside the cluster information stored in
 
 ## Start an independent sequence
 
-Call [`reset()`](http://michael.hahsler.net/rEMM/reference/update.md)
+Call [`reset()`](https://michael.hahsler.net/rEMM/reference/update.md)
 before processing a new, independent sequence. It clears the current
 state while retaining the learned states and transition counts, so no
 transition is added from the end of the previous sequence to the new
@@ -212,13 +212,13 @@ updated model, which can differ from the assignments made as each point
 arrived for clustering.
 
 Before passing labels to
-[`TRACDS()`](http://michael.hahsler.net/rEMM/reference/TRACDS-class.md),
+[`TRACDS()`](https://michael.hahsler.net/rEMM/reference/TRACDS-class.md),
 ensure that a label continues to identify the same cluster across
 updates. Current indices such as `.class` need a mapping to persistent
 identifiers if clusters can be removed or reordered. Macro-cluster
 labels also need care when reclustering changes their labels.
 
-[`TRACDS()`](http://michael.hahsler.net/rEMM/reference/TRACDS-class.md)
+[`TRACDS()`](https://michael.hahsler.net/rEMM/reference/TRACDS-class.md)
 does not automatically synchronize cluster deletions, merges, or
 relabeling with the `DSC`. For a clusterer that changes cluster
 identities, maintain a consistent label mapping or rebuild the temporal
@@ -226,9 +226,9 @@ model for the new clustering. The update loop above explicitly
 coordinates the two models.
 
 For the package’s integrated clustering and temporal model, see
-[`DSC_EMM()`](http://michael.hahsler.net/rEMM/reference/DSC_EMM.md) and
+[`DSC_EMM()`](https://michael.hahsler.net/rEMM/reference/DSC_EMM.md) and
 the [getting started
-vignette](http://michael.hahsler.net/rEMM/articles/rEMM.md).
+vignette](https://michael.hahsler.net/rEMM/articles/rEMM.md).
 
 ## References
 

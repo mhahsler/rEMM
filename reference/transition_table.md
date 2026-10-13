@@ -54,9 +54,9 @@ probability/count.)
 
 ## See also
 
-[`transition`](http://michael.hahsler.net/rEMM/reference/transition.md)
+[`transition`](https://michael.hahsler.net/rEMM/reference/transition.md)
 to access transition probabilities and
-[`find_clusters`](http://michael.hahsler.net/rEMM/reference/find_clusters.md)
+[`find_clusters`](https://michael.hahsler.net/rEMM/reference/find_clusters.md)
 for assigning observations to states/clusters.
 
 ## Examples

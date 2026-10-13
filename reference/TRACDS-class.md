@@ -122,12 +122,12 @@ Data Mining,* pp. 371–374.
 ## See also
 
 Look at
-[`transition`](http://michael.hahsler.net/rEMM/reference/transition.md),
-[`transition_matrix`](http://michael.hahsler.net/rEMM/reference/transition.md)
+[`transition`](https://michael.hahsler.net/rEMM/reference/transition.md),
+[`transition_matrix`](https://michael.hahsler.net/rEMM/reference/transition.md)
 and
-[`initial_transition`](http://michael.hahsler.net/rEMM/reference/transition.md)
+[`initial_transition`](https://michael.hahsler.net/rEMM/reference/transition.md)
 to access the transition information in the EMM.
-[`predict`](http://michael.hahsler.net/rEMM/reference/predict.md) is
+[`predict`](https://michael.hahsler.net/rEMM/reference/predict.md) is
 used to predict future states of an EMM.
-[`EMM`](http://michael.hahsler.net/rEMM/reference/EMM-class.md) extends
+[`EMM`](https://michael.hahsler.net/rEMM/reference/EMM-class.md) extends
 `"TRACDS"`.

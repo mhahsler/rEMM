@@ -92,7 +92,7 @@ Objects can be created with `new()` or by the creator function `tNN`.
 
   :   A `"character"` vector containing the cluster names the points for
       the previous call of
-      [`cluster()`](http://michael.hahsler.net/rEMM/reference/cluster.md)
+      [`cluster()`](https://michael.hahsler.net/rEMM/reference/cluster.md)
       were assigned to.
 
 ## Methods
@@ -140,9 +140,9 @@ Data Mining,* pp. 371–374.
 
 ## See also
 
-[`cluster`](http://michael.hahsler.net/rEMM/reference/cluster.md) for
+[`cluster`](https://michael.hahsler.net/rEMM/reference/cluster.md) for
 adding new data to the clustering.
-[`find_clusters`](http://michael.hahsler.net/rEMM/reference/find_clusters.md)
+[`find_clusters`](https://michael.hahsler.net/rEMM/reference/find_clusters.md)
 to find the nearest neighbor cluster for given data points.
-[`EMM`](http://michael.hahsler.net/rEMM/reference/EMM-class.md) extends
+[`EMM`](https://michael.hahsler.net/rEMM/reference/EMM-class.md) extends
 "tNN".

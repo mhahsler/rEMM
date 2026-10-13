@@ -49,8 +49,8 @@ and all transition counts are faded.
 
 ## See also
 
-[`EMM`](http://michael.hahsler.net/rEMM/reference/EMM-class.md) and
-[`build`](http://michael.hahsler.net/rEMM/reference/build.md)
+[`EMM`](https://michael.hahsler.net/rEMM/reference/EMM-class.md) and
+[`build`](https://michael.hahsler.net/rEMM/reference/build.md)
 
 ## Examples
 

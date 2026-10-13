@@ -31,7 +31,7 @@ A reference to the changed EMM object with the data added. Note: EMM
 objects store all variable data in an environment which enables us to
 update partial data without copying the whole object. Assignment will
 not create a copy! Use the provided method
-[`copy()`](http://michael.hahsler.net/rEMM/reference/EMM-class.md).
+[`copy()`](https://michael.hahsler.net/rEMM/reference/EMM-class.md).
 
 ## Details
 
@@ -44,8 +44,8 @@ data for dissimilarity computation (see package proxy).
 ## See also
 
 Class
-[`TRACDS`](http://michael.hahsler.net/rEMM/reference/TRACDS-class.md),
-[`fade`](http://michael.hahsler.net/rEMM/reference/fade.md) and `dist`
+[`TRACDS`](https://michael.hahsler.net/rEMM/reference/TRACDS-class.md),
+[`fade`](https://michael.hahsler.net/rEMM/reference/fade.md) and `dist`
 in proxy.
 
 ## Examples
@@ -87,8 +87,8 @@ emm2<- copy(emm)
 
 ## convert the emm into a graph
 as.igraph(emm)
-#> IGRAPH 45c2053 DNW- 7 9 -- 
+#> IGRAPH 38f3e3a DNW- 7 9 -- 
 #> + attr: name (v/c), weight (e/n)
-#> + edges from 45c2053 (vertex names):
+#> + edges from 38f3e3a (vertex names):
 #> [1] 1->2 2->1 2->3 2->6 3->4 4->5 5->2 5->7 6->4
 ```

@@ -29,7 +29,7 @@ A reference to the changed tNN object with the data added. Note: tNN
 objects store all variable data in an environment which enables us to
 update partial data without copying the whole object. Assignment will
 not create a copy! Use the provided method
-[`copy()`](http://michael.hahsler.net/rEMM/reference/EMM-class.md).
+[`copy()`](https://michael.hahsler.net/rEMM/reference/EMM-class.md).
 
 ## Details
 
@@ -46,12 +46,12 @@ data for dissimilarity computation (see package~proxy).
 
 The clusters which the data points in the last `cluster()` operation
 where assigned to can be retrieved using the method
-[`last_clustering()`](http://michael.hahsler.net/rEMM/reference/tNN-class.md).
+[`last_clustering()`](https://michael.hahsler.net/rEMM/reference/tNN-class.md).
 
 ## See also
 
-Class [`tNN`](http://michael.hahsler.net/rEMM/reference/tNN-class.md),
-[`fade`](http://michael.hahsler.net/rEMM/reference/fade.md) and `dist`
+Class [`tNN`](https://michael.hahsler.net/rEMM/reference/tNN-class.md),
+[`fade`](https://michael.hahsler.net/rEMM/reference/fade.md) and `dist`
 in proxy.
 
 ## Examples

@@ -68,9 +68,9 @@ null model has a transition matrix with all entries equal to \\1/n\\.
 
 ## See also
 
-[`EMM`](http://michael.hahsler.net/rEMM/reference/EMM-class.md) which
+[`EMM`](https://michael.hahsler.net/rEMM/reference/EMM-class.md) which
 contains
-[`TRACDS`](http://michael.hahsler.net/rEMM/reference/TRACDS-class.md)
+[`TRACDS`](https://michael.hahsler.net/rEMM/reference/TRACDS-class.md)
 
 ## Examples
 

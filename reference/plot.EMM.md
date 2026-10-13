@@ -125,7 +125,7 @@ and "eAttrs" for node and edge attributes can be used.
 
 ## See also
 
-[`EMM`](http://michael.hahsler.net/rEMM/reference/EMM-class.md)
+[`EMM`](https://michael.hahsler.net/rEMM/reference/EMM-class.md)
 
 ## Examples
 

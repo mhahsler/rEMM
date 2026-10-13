@@ -12,13 +12,14 @@
 Source:
 [`inst/CITATION`](https://github.com/mhahsler/rEMM/blob/main/inst/CITATION)
 
-Hahsler M (????). *rEMM: Extensible Markov Model for Modelling Temporal
+Hahsler M (2026). *rEMM: Extensible Markov Model for Modelling Temporal
 Relationships Between Clusters*. R package version 1.2.3,
 <https://github.com/mhahsler/rEMM>.
 
     @Manual{,
       title = {rEMM: Extensible Markov Model for Modelling Temporal Relationships Between Clusters},
       author = {Michael Hahsler},
+      year = {2026},
       note = {R package version 1.2.3},
       url = {https://github.com/mhahsler/rEMM},
     }

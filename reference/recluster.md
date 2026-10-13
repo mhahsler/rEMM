@@ -106,8 +106,8 @@ using the same weight.
 
 ## See also
 
-[`merge_clusters`](http://michael.hahsler.net/rEMM/reference/merge.md),
-[`prune`](http://michael.hahsler.net/rEMM/reference/prune.md),
+[`merge_clusters`](https://michael.hahsler.net/rEMM/reference/merge.md),
+[`prune`](https://michael.hahsler.net/rEMM/reference/prune.md),
 [`kmeans`](https://rdrr.io/r/stats/kmeans.html),
 [`hclust`](https://rdrr.io/r/stats/hclust.html),
 [`pam`](https://rdrr.io/pkg/cluster/man/pam.html)
