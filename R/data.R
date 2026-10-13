@@ -20,7 +20,7 @@
 #'     with about 449 rows and 64 (number of possible triplets) columns.
 #' @source The raw sequence information was obtained from the
 #' National center for biotechnology information (NCBI) website at
-#' http://www.ncbi.nih.gov/
+#' https://www.ncbi.nlm.nih.gov/
 #' @examples
 #' data("16S")
 #'

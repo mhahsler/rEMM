@@ -90,16 +90,14 @@ examples and applications.
         P.O. Box 750122 \\
         Dallas, TX 75275-0122\\
         E-mail: \email{mhahsler@lyle.smu.edu}\\
-        URL: \url{http://lyle.smu.edu/~mhahsler}
+        URL: \url{https://michael.hahsler.net}
 
     Margaret H. Dunham\\
         Computer Science and Engineering\\
         Lyle School of Engineering\\
         Southern Methodist University\\
         P.O. Box 750122 \\
-        Dallas, TX 75275-0122\\
-        E-mail: \email{mhd@lyle.smu.edu}\\
-        URL: \url{http://lyle.smu.edu/~mhd}
+        Dallas, TX 75275-0122
 }
 %% It is also possible to add a telephone and fax number
 %% before the e-mail in the following format:
@@ -889,8 +887,8 @@ cluster_centers(emm)
 \func{plot} for \class{EMM} objects provides several visualization methods.
 For example, the default method is as a graph using \pkg{igraph}. We use
 here the method "graph" which uses \pkg{Rgraphviz}, a package which
-has to be installed separately from the Bioconduictor
-project\footnote{\url{http://www.bioconductor.org/}}.
+has to be installed separately from the Bioconductor
+project\footnote{\url{https://www.bioconductor.org/}}.
 
 <<Traffic_graph, fig=TRUE, include=FALSE>>=
 plot(emm, method = "graph")
