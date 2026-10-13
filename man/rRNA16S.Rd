@@ -14,7 +14,7 @@
 \source{
 The raw sequence information was obtained from the
 National center for biotechnology information (NCBI) website at
-http://www.ncbi.nih.gov/
+https://www.ncbi.nlm.nih.gov/
 }
 \usage{
 data("16S")
