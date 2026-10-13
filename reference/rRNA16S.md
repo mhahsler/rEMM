@@ -20,7 +20,8 @@ rows and 64 (number of possible triplets) columns.
 ## Source
 
 The raw sequence information was obtained from the National center for
-biotechnology information (NCBI) website at http://www.ncbi.nih.gov/
+biotechnology information (NCBI) website at
+https://www.ncbi.nlm.nih.gov/
 
 ## Examples
 
