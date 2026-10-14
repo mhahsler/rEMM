@@ -2,6 +2,8 @@
 
 ## rEMM 1.2.3 (10/13/2026)
 
+CRAN release: 2026-10-13
+
 - Added a getting started vignette.
 - Added a vignette on modeling temporal structure with stream clusterers
   and TRACDS.
