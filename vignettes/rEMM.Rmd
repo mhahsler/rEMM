@@ -253,6 +253,7 @@ For standard clustering methods such as k-means, see
 which demonstrates the `TRAC()` interface.
 
 For the model's background and further applications, see the
-[original paper vignette](rEMM_paper_vignette.pdf) and @Hahsler+Dunham:2010.
+[updated paper vignette](https://mhahsler.r-universe.dev/rEMM/doc/rEMM_paper_vignette.pdf) 
+and @Hahsler+Dunham:2010.
 
 ## References

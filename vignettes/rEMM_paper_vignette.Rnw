@@ -130,6 +130,8 @@ options(width = 70,
 set.seed(1234)
 @
 
+Note: A previous version of this vignette was published in the Journal of Statistical
+Software~\citep{Hahsler+Dunham:2010}.
 
 \section{Introduction}
 Clustering data streams~\citep{stream_clust:Guha:2000}
@@ -239,9 +241,6 @@ Sections~\ref{sec:examples} and \ref{sec:applications} provide
 examples for the package's functionality and apply EMM
 to analyzing river flow data and to genetic sequences.
 We conclude with Section~\ref{sec:conclusion}.
-
-A previous version of this paper was published in the Journal of Statistical
-Software~\citep{Hahsler+Dunham:2010}.
 
 \section{Extensible Markov model}
 \label{sec:EMM}\nopagebreak
