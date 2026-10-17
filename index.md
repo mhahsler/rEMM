@@ -99,6 +99,9 @@ score(emmc, EMMsim_test)
 - [Adding temporal structure modeling to stream
   clustering](https://michael.hahsler.net/rEMM/articles/stream.html)
   connects stream clusterers to TRACDS.
+- [Complete
+  vignette](https://mhahsler.r-universe.dev/rEMM/doc/rEMM_paper_vignette.pdf)
+  (updated version of the JSS paper.)
 
 # Acknowledgements
 

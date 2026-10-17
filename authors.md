@@ -10,7 +10,7 @@
 ## Citation
 
 Source:
-[`inst/CITATION`](https://github.com/mhahsler/rEMM/blob/rEMM_1.2.3/inst/CITATION)
+[`inst/CITATION`](https://github.com/mhahsler/rEMM/blob/main/inst/CITATION)
 
 Hahsler M (2026). *rEMM: Extensible Markov Model for Modelling Temporal
 Relationships Between Clusters*. R package version 1.2.3,

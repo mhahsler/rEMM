@@ -331,9 +331,9 @@ demonstrates the
 [`TRAC()`](https://michael.hahsler.net/rEMM/reference/TRAC-class.md)
 interface.
 
-For the model’s background and further applications, see the [original
+For the model’s background and further applications, see the [updated
 paper
-vignette](https://michael.hahsler.net/rEMM/articles/rEMM_paper_vignette.pdf)
+vignette](https://mhahsler.r-universe.dev/rEMM/doc/rEMM_paper_vignette.pdf)
 and Hahsler and Dunham (2010).
 
 ## References
